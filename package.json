@@ -1,0 +1,37 @@
+{
+  "name": "wright-brothers",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Wright Brothers — luxury residential design & build, Dubai UAE.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint . --max-warnings=0",
+    "typecheck": "tsc --noEmit",
+    "check:contrast": "node scripts/check-contrast.mjs",
+    "check": "npm run lint && npm run typecheck && npm run check:contrast"
+  },
+  "dependencies": {
+    "lenis": "^1.1.18",
+    "motion": "^11.15.0",
+    "next": "^16.3.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "server-only": "^0.0.1"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.6",
+    "@tailwindcss/postcss": "^4.0.0",
+    "@types/node": "^22.10.7",
+    "@types/react": "^19.0.7",
+    "@types/react-dom": "^19.0.3",
+    "eslint": "^9.18.0",
+    "eslint-config-next": "^16.3.0",
+    "tailwindcss": "^4.0.0",
+    "typescript": "^5.7.3"
+  },
+  "allowScripts": {
+    "unrs-resolver@1.12.2": true
+  }
+}
