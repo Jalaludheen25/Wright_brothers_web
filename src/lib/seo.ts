@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { CONTACT, SITE, SOCIAL, formattedAddress } from "./site";
+import { COMPANY, CONTACT, SITE, SOCIAL, formattedAddress } from "./site";
 import { SERVICES } from "./content/services";
 import { TECHNICAL_SERVICES } from "./content/technical-services";
 
@@ -66,9 +66,20 @@ export function organizationSchema() {
     legalName: SITE.legalName,
     url: SITE.url,
     description: SITE.description,
-    foundingDate: SITE.founded,
+    foundingDate: COMPANY.issued,
+    identifier: {
+      "@type": "PropertyValue",
+      name: "Trade Licence",
+      value: COMPANY.licenceNumber,
+    },
+    founder: {
+      "@type": "Person",
+      name: COMPANY.owner,
+      jobTitle: "Founder & CEO",
+      nationality: { "@type": "Country", name: COMPANY.ownerNationality },
+    },
     image: absoluteUrl("/opengraph-image"),
-    logo: absoluteUrl("/icon.svg"),
+    logo: absoluteUrl("/icon.png"),
     telephone: CONTACT.phone,
     email: CONTACT.email,
     priceRange: "AED 320,000+",

@@ -92,7 +92,7 @@ export function Manifesto() {
                   discusses a stone sample.&rdquo;
                 </blockquote>
                 <figcaption className="label mt-5 text-ash">
-                  Yasmin Rahal — Head of Design
+                  Wright Brothers Technical Services
                 </figcaption>
               </figure>
             </Reveal>

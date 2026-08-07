@@ -29,24 +29,39 @@ npm run dev                  # http://localhost:3000
 
 ---
 
-## ⚠️ This is demonstration content
+## Content status — verified vs. demonstration
 
-Every factual claim on this site is **invented to exercise the design**, not
-supplied by a real business:
+**Verified client data, safe to publish:**
 
-| What | File |
+| | |
 | --- | --- |
-| 8 case studies with plot sizes, dates and performance figures | `lib/content/projects.ts` |
-| 9 client testimonials attributed to named people | `lib/content/testimonials.ts` |
-| 6 award wins and certifications | `lib/content/stats.ts` |
-| Performance stats (240+ residences, 98% on programme, 16 years) | `lib/content/stats.ts` |
-| 6 named staff with biographies | `lib/content/team.ts` |
-| Address, phone, email, trade licence | `lib/site.ts` |
+| Legal name | Wright Brothers Technical Services L.L.C. |
+| Trade licence | 1084781 · Department of Economy & Tourism, Dubai |
+| Legal type | Limited Liability Company – Single Owner (LLC - SO) |
+| Licence period | 28 Jul 2022 — 27 Jul 2028 |
+| DCCI / Register | 4112531 / 1844315 |
+| Owner & CEO | Jinto Parakka Jose Jose (India) |
+| Address | 301, RAG Tower Business Centre, Al Barsha First, Dubai |
+| Phone / Email | +971 52 898 5055 / info@wbtechuae.com |
+| Team | 8 members with roles and descriptions — `lib/content/team.ts` |
+| Strengths & credentials | 8 items — `lib/content/stats.ts` → `ACHIEVEMENTS` |
+| Services | 6 design-build + 8 technical trades |
 
-**Do not publish any of it against a real company.** Fabricated testimonials
-are fake reviews, and invented award wins are checkable false claims — both
-carry real legal and reputational exposure. Replace every item above with
-verified content before the site goes anywhere near a live domain.
+All of the above lives in `lib/site.ts` (`COMPANY`, `CONTACT`) and
+`lib/content/`.
+
+**Still DEMONSTRATION CONTENT — must not be published as fact:**
+
+| Invented | File |
+| --- | --- |
+| 9 client testimonials attributed to named people | `lib/content/testimonials.ts` |
+| "240+ residences", "98% on programme", "2% variance" | `lib/content/stats.ts` → `STATS` |
+| 8 case studies with plot sizes, dates and metrics | `lib/content/projects.ts` |
+| 6 long-form articles (bylined to the company, not to individuals) | `lib/content/insights.ts` |
+| The CEO pull-quote on `/about` | `app/about/page.tsx` — marked `TODO(client)` |
+
+Fabricated testimonials are fake reviews and invented awards are checkable
+false claims. Replace or delete each before the site reaches a live domain.
 
 ---
 
@@ -85,25 +100,17 @@ Keys are semantic (`int-bath-luxe`, `craft-site`, `int-kitchen-modern`), so
 content files referencing them keep working. Remove the disclosure paragraph in
 `src/app/terms/page.tsx` once real photography is in.
 
-### 3. Business details — partly real, partly still placeholder
+### 3. Remaining assumptions
 
-Client-supplied and **live on the site**:
-
-| Detail | Value |
-| --- | --- |
-| Address | 301, RAG Tower Business Centre, Al Barsha First, Dubai, UAE |
-| Phone | +971 52 898 5055 |
-| Email | info@wbtechuae.com |
-
-Still **placeholder** in `src/lib/site.ts` — confirm each before launch:
+Company registration, address, phone and email are verified (see the table
+above). These are still assumptions in `src/lib/site.ts` — confirm each:
 
 - **WhatsApp number** — assumed to be the same mobile (+971 52 898 5055).
 - **Map pin** (`CONTACT.geo`) — approximate Al Barsha First coordinates. Take the exact ones from the Google Business Profile.
 - **Opening hours** — Sun–Thu 09:00–18:00, assumed.
-- **Trade licence number** — currently `000000`.
-- **Legal name** — currently "Wright Brothers Design & Build LLC".
 - **Canonical domain** — `SITE.url` still defaults to `wrightbrothers.ae`, but the email domain is `wbtechuae.com`. Set `NEXT_PUBLIC_SITE_URL` to whichever is correct; every canonical tag, the sitemap and the OG URLs derive from it.
 - **Social profiles** (`SOCIAL`) — placeholder handles.
+- **Site positioning** — the copy describes a residential design-and-build studio, while the trade licence and logo both read "Technical Services". Confirm which the site should lead with.
 
 ### 4. Check the content
 
@@ -113,13 +120,13 @@ All copy lives in `src/lib/content/`, as typed TypeScript — no CMS:
 projects.ts            8 case studies + the before/after pairs
 services.ts            6 design-and-build services
 technical-services.ts  the 8 trades, offered standalone
-capabilities.ts  the 4 "drawn, then built" showcase cards
-testimonials.ts  9 client quotes
-insights.ts      6 long-form articles
-process.ts       the 7 stages
-faqs.ts          15 questions
-team.ts          6 people + the studio values
-stats.ts         counters, awards, credentials
+capabilities.ts        the 4 "drawn, then built" showcase cards
+testimonials.ts        9 client quotes
+insights.ts            6 long-form articles
+process.ts             the 7 stages
+faqs.ts                15 questions
+team.ts                8 real people + the studio values
+stats.ts               counters, awards, credentials
 ```
 
 Project figures, award claims and testimonials are illustrative and written to

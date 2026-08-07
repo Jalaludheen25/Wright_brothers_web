@@ -1,13 +1,14 @@
 /**
  * Single source of truth for brand, contact and navigation data.
  *
- * NOTE: these are PLACEHOLDER details for a demonstration build, not a real
- * trading company. See README ("Going live") before publishing anything here.
+ * Company registration, address, phone and email are VERIFIED client data.
+ * The canonical URL, social profiles, opening hours and the WhatsApp number
+ * are still assumptions — see README ("Going live").
  */
 
 export const SITE = {
   name: "Wright Brothers",
-  legalName: "Wright Brothers Design & Build LLC",
+  legalName: "Wright Brothers Technical Services L.L.C.",
   shortName: "Wright Brothers",
   tagline: "Design & Build — Dubai",
   /** Used for canonical URLs, sitemap, JSON-LD and OG tags. */
@@ -15,7 +16,6 @@ export const SITE = {
   locale: "en_AE",
   description:
     "Wright Brothers is a residential design-and-build atelier in Dubai. One team draws your villa in full, then builds it — from first sketch to final handover.",
-  founded: "2009",
 } as const;
 
 export const CONTACT = {
@@ -46,7 +46,28 @@ export const CONTACT = {
     { days: "Saturday", time: "By appointment" },
     { days: "Friday", time: "Closed" },
   ],
-  licence: "Dubai Economy & Tourism · Trade Licence 000000",
+  licence: "Dubai Economy & Tourism · Trade Licence 1084781",
+} as const;
+
+/**
+ * Verified trade-licence record, as issued by the Department of Economy &
+ * Tourism, Dubai. Rendered on the About page and in the LocalBusiness schema.
+ */
+export const COMPANY = {
+  legalName: "Wright Brothers Technical Services L.L.C.",
+  activity: "Wright Brothers Technical Services LLC",
+  licenceNumber: "1084781",
+  licenceAuthority: "Department of Economy & Tourism, Dubai",
+  legalType: "Limited Liability Company – Single Owner (LLC - SO)",
+  issued: "2022-07-28",
+  expires: "2028-07-27",
+  issuedLabel: "28 July 2022",
+  expiresLabel: "27 July 2028",
+  dcciNumber: "4112531",
+  registerNumber: "1844315",
+  owner: "Jinto Parakka Jose Jose",
+  ownerRole: "Owner & CEO",
+  ownerNationality: "India",
 } as const;
 
 export const SOCIAL = [

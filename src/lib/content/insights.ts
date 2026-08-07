@@ -29,8 +29,8 @@ export const POSTS: Post[] = [
     category: "Cost",
     date: "2026-06-18",
     readingMinutes: 7,
-    author: "Daniel Wright",
-    authorRole: "Managing Director",
+    author: "Wright Brothers",
+    authorRole: "Technical Team",
     image: "craft-strip-out",
     featured: true,
     body: [
@@ -103,8 +103,8 @@ export const POSTS: Post[] = [
     category: "Design",
     date: "2026-05-02",
     readingMinutes: 8,
-    author: "Yasmin Rahal",
-    authorRole: "Head of Design",
+    author: "Wright Brothers",
+    authorRole: "Technical Team",
     image: "ext-facade-detail",
     featured: true,
     body: [
@@ -159,8 +159,8 @@ export const POSTS: Post[] = [
     category: "Regulation",
     date: "2026-04-09",
     readingMinutes: 9,
-    author: "Omar Haddad",
-    authorRole: "Head of Delivery",
+    author: "Wright Brothers",
+    authorRole: "Technical Team",
     image: "abs-facade",
     body: [
       {
@@ -219,8 +219,8 @@ export const POSTS: Post[] = [
     category: "Materials",
     date: "2026-03-14",
     readingMinutes: 6,
-    author: "Yasmin Rahal",
-    authorRole: "Head of Design",
+    author: "Wright Brothers",
+    authorRole: "Technical Team",
     image: "int-kitchen-garden",
     body: [
       {
@@ -270,8 +270,8 @@ export const POSTS: Post[] = [
     category: "Process",
     date: "2026-02-05",
     readingMinutes: 7,
-    author: "Daniel Wright",
-    authorRole: "Managing Director",
+    author: "Wright Brothers",
+    authorRole: "Technical Team",
     image: "int-loft-glass",
     body: [
       {
@@ -324,8 +324,8 @@ export const POSTS: Post[] = [
     category: "Process",
     date: "2026-01-16",
     readingMinutes: 5,
-    author: "Omar Haddad",
-    authorRole: "Head of Delivery",
+    author: "Wright Brothers",
+    authorRole: "Technical Team",
     image: "craft-artisan",
     body: [
       {

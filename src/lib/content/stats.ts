@@ -1,6 +1,7 @@
 /**
- * DEMONSTRATION CONTENT. These figures and award wins are written to exercise
- * the design — they are not verified claims. Replace before publishing.
+ * The first entry is verified from the trade licence. The remaining figures and
+ * all ACHIEVEMENTS are DEMONSTRATION CONTENT — not verified claims. Replace or
+ * delete them before publishing. See README ("This is demonstration content").
  */
 
 export type Stat = {
@@ -14,11 +15,15 @@ export type Stat = {
   decimals?: number;
 };
 
+/** Derived from the licence issue date so it cannot drift out of date. */
+const LICENCE_YEAR = 2022;
+const yearsLicensed = Math.max(1, new Date().getFullYear() - LICENCE_YEAR);
+
 export const STATS: Stat[] = [
   {
-    value: 16,
-    label: "Years building in Dubai",
-    note: "Founded in 2009, through every cycle since",
+    value: yearsLicensed,
+    label: "Years licensed in Dubai",
+    note: "DET trade licence 1084781, issued July 2022",
   },
   {
     value: 240,
@@ -40,36 +45,53 @@ export const STATS: Stat[] = [
   },
 ];
 
-export const ACHIEVEMENTS = [
+/**
+ * Company strengths and credentials.
+ *
+ * The award wins that previously sat here were invented placeholder content and
+ * have been removed. Items 01 and 02 are verifiable from the trade licence; the
+ * rest are standards of conduct rather than claims about outcomes.
+ */
+export const ACHIEVEMENTS: { title: string; detail: string }[] = [
   {
-    year: "2025",
-    title: "Middle East Architect Awards",
-    detail: "Residential Project of the Year — shortlisted, Sarab House",
+    title: "Licensed & Registered Dubai Company",
+    detail:
+      "Trade licence 1084781, valid to July 2028, under commercial register 1844315.",
   },
   {
-    year: "2024",
-    title: "Commercial Interior Design Awards",
-    detail: "Residential Interior of the Year — winner, Al Marsa Penthouse",
+    title: "Department of Economy & Tourism Licensed",
+    detail:
+      "Licensed by Dubai DET as a Limited Liability Company (Single Owner), with Dubai Chamber membership 4112531.",
   },
   {
-    year: "2024",
-    title: "Emirates Green Building Council",
-    detail: "Certified member — low-energy residential practice",
+    title: "Professional & Skilled Technical Team",
+    detail:
+      "Engineers, supervisors and tradespeople employed directly rather than sub-let, so the people on your site answer to us.",
   },
   {
-    year: "2023",
-    title: "Identity Design Awards",
-    detail: "Renovation of the Year — winner, Barajeel Villa",
+    title: "Quality Workmanship",
+    detail:
+      "Work is checked against the specification before it is called finished, and made good afterwards rather than left for someone else.",
   },
   {
-    year: "2022",
-    title: "Dubai Municipality",
-    detail: "Grade A contractor classification, unrestricted residential",
+    title: "Reliable Project Delivery",
+    detail:
+      "A dated programme at the outset and one named point of contact throughout, so you always know where the job actually stands.",
   },
   {
-    year: "2019",
-    title: "ISO 9001 & ISO 45001",
-    detail: "Quality and occupational health management, certified since",
+    title: "Customer Satisfaction",
+    detail:
+      "Snags are walked and closed with you present, and we come back for anything that turns out to be our workmanship.",
+  },
+  {
+    title: "Residential & Commercial Expertise",
+    detail:
+      "Villas, apartments, offices and retail units — including the permits, NOCs and access constraints that tower work brings with it.",
+  },
+  {
+    title: "Safety & Industry Best Practices",
+    detail:
+      "Method statements, safe isolation and site protection as standard practice on every job, whatever its size.",
   },
 ];
 

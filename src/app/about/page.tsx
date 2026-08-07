@@ -8,13 +8,14 @@ import { ParallaxImage, StaticImage } from "@/components/ui/ParallaxImage";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { TEAM, VALUES } from "@/lib/content/team";
 import { ACHIEVEMENTS } from "@/lib/content/stats";
+import { COMPANY } from "@/lib/site";
 import { buildMetadata, breadcrumbSchema } from "@/lib/seo";
 import { pad } from "@/lib/utils";
 
 export const metadata: Metadata = buildMetadata({
   title: "About Us",
   description:
-    "Wright Brothers is a Dubai design-and-build practice founded in 2009. Two brothers, one workshop, and a refusal to hand our drawings to somebody else.",
+    "Wright Brothers Technical Services L.L.C. is a Dubai design-and-build practice, licensed by the Department of Economy & Tourism and led by Jinto Parakka Jose Jose.",
   path: "/about",
 });
 
@@ -25,7 +26,7 @@ export default function AboutPage() {
 
       <PageHero
         eyebrow="The studio"
-        title="Two brothers, one workshop, and a *stubborn* idea."
+        title="One team, one contract, and a *stubborn* idea."
         lead="That the people who design a house should be the people who build it — and should still be standing on site the day it is handed over."
         image="int-concrete-glass"
         crumbs={[{ name: "About", href: "/about" }]}
@@ -38,50 +39,48 @@ export default function AboutPage() {
             <SectionHeading
               eyebrow="Where this came from"
               number="01"
-              title="Three years of watching good drawings get built badly."
+              title="One practice, responsible for the drawing and the building."
             />
 
             <div className="mt-10 max-w-[58ch] space-y-6 leading-[1.75] text-slate">
               <Reveal>
                 <p>
-                  Daniel Wright arrived in Dubai in 2006 as a structural
-                  engineer. Michael followed a year later, off the back of a
-                  decade running sites in the north of England. Between them
-                  they spent three years working on other people&apos;s villas
-                  and watching the same failure repeat: a considered design
-                  handed to a contractor with no stake in it, and a client left
-                  to arbitrate between two firms who each believed the other was
-                  wrong.
+                  {COMPANY.legalName} is a Dubai practice owned and led by{" "}
+                  {COMPANY.owner}, licensed by the {COMPANY.licenceAuthority}{" "}
+                  and working across residential and commercial property in the
+                  emirate.
                 </p>
               </Reveal>
               <Reveal delay={0.05}>
                 <p>
-                  In 2009 — not an obvious year to start a construction company
-                  in this city — they started one anyway, on the premise that
-                  the interface itself was the problem. Not the architects. Not
-                  the builders. The gap between them.
+                  Most residential work here is split in two. An architect draws
+                  the project and hands it to a contractor who had no part in
+                  the thinking. When the two disagree — and they always do — the
+                  person paying for both is the one left to arbitrate between
+                  them.
                 </p>
               </Reveal>
               <Reveal delay={0.1}>
                 <p>
-                  Sixteen years and more than two hundred and forty residences
-                  later, the premise has held. We have added a design team, a
-                  joinery workshop in Al Quoz and a commercial director whose
-                  entire job is to defend the fixed price. What we have not added
-                  is a subcontracted design partner, or a second company to blame.
+                  So the interface was removed rather than managed. Design and
+                  construction sit under a single agreement, carried out by our
+                  own teams. There is no subcontracted design partner and no
+                  second company to blame, which tends to concentrate the mind.
                 </p>
               </Reveal>
             </div>
 
             <Reveal delay={0.15}>
               <figure className="mt-14 border-l border-brass/40 pl-7">
+                {/* TODO(client): placeholder wording. Confirm with Jinto, or
+                    replace with a sentence in his own words, before launch. */}
                 <blockquote className="display text-h3 leading-[1.3] text-ink">
                   &ldquo;We are not trying to be the biggest builder in Dubai.
                   We are trying to be the one whose houses are still right in
                   twenty years.&rdquo;
                 </blockquote>
                 <figcaption className="label mt-6 text-ash">
-                  Daniel Wright — Managing Director
+                  {COMPANY.owner} — Founder &amp; CEO
                 </figcaption>
               </figure>
             </Reveal>
@@ -99,26 +98,39 @@ export default function AboutPage() {
             </Reveal>
 
             <Reveal delay={0.15}>
+              {/* Verified trade-licence record */}
               <dl className="mt-10 grid grid-cols-2 gap-8">
                 <div>
-                  <dt className="label text-ash">Founded</dt>
+                  <dt className="label text-ash">Licence No.</dt>
                   <dd className="display mt-3 text-h3 text-ink [font-variant-numeric:lining-nums]">
-                    2009
+                    {COMPANY.licenceNumber}
                   </dd>
                 </div>
                 <div>
-                  <dt className="label text-ash">Team</dt>
+                  <dt className="label text-ash">DCCI No.</dt>
                   <dd className="display mt-3 text-h3 text-ink [font-variant-numeric:lining-nums]">
-                    64
+                    {COMPANY.dcciNumber}
                   </dd>
                 </div>
                 <div>
-                  <dt className="label text-ash">Workshop</dt>
-                  <dd className="mt-3 text-ink">Al Quoz Industrial 3</dd>
+                  <dt className="label text-ash">Register No.</dt>
+                  <dd className="mt-3 text-ink [font-variant-numeric:lining-nums]">
+                    {COMPANY.registerNumber}
+                  </dd>
                 </div>
                 <div>
-                  <dt className="label text-ash">Classification</dt>
-                  <dd className="mt-3 text-ink">DM Grade A</dd>
+                  <dt className="label text-ash">Legal type</dt>
+                  <dd className="mt-3 text-ink">{COMPANY.legalType}</dd>
+                </div>
+                <div>
+                  <dt className="label text-ash">Licensed</dt>
+                  <dd className="mt-3 text-ink">
+                    {COMPANY.issuedLabel} — {COMPANY.expiresLabel}
+                  </dd>
+                </div>
+                <div>
+                  <dt className="label text-ash">{COMPANY.ownerRole}</dt>
+                  <dd className="mt-3 text-ink">{COMPANY.owner}</dd>
                 </div>
               </dl>
             </Reveal>
@@ -167,7 +179,7 @@ export default function AboutPage() {
             number="03"
             tone="light"
             title="You will meet all of these people. Most of them, repeatedly."
-            lead="We are a studio of sixty-four. These six are the ones whose decisions shape your project."
+            lead="The team behind every project — office, engineering and site."
           />
 
           <RevealGroup
@@ -193,10 +205,14 @@ export default function AboutPage() {
                       </p>
                     </div>
                   </div>
-                  <p className="mt-6 leading-relaxed text-alabaster/55">
-                    {member.bio}
-                  </p>
-                  <p className="label mt-5 text-alabaster/55">{member.since}</p>
+                  {member.bio ? (
+                    <p className="mt-6 leading-relaxed text-alabaster/55">
+                      {member.bio}
+                    </p>
+                  ) : null}
+                  {member.since ? (
+                    <p className="label mt-5 text-alabaster/55">{member.since}</p>
+                  ) : null}
                 </article>
               </RevealItem>
             ))}
@@ -209,10 +225,10 @@ export default function AboutPage() {
         <div className="container-wide grid gap-[clamp(3rem,2rem+4vw,6rem)] lg:grid-cols-[1fr_1.1fr]">
           <div>
             <SectionHeading
-              eyebrow="Recognition"
+              eyebrow="What we bring"
               number="04"
-              title="Awards, certifications and the paperwork that matters more."
-              lead="The classifications at the bottom of this list are considerably harder to get than the awards at the top."
+              title="Licensed, directly staffed, and accountable for the whole of it."
+              lead="Not awards. The things a client can verify before signing, and the standards we hold ourselves to on every job after."
             />
 
             <Reveal delay={0.2} className="mt-12">
@@ -228,11 +244,12 @@ export default function AboutPage() {
           <div>
             <ul className="border-t border-ink/12">
               {ACHIEVEMENTS.map((item, i) => (
-                <li key={item.title + item.year} className="border-b border-ink/12">
+                <li key={item.title} className="border-b border-ink/12">
                   <Reveal delay={i * 0.05}>
                     <div className="grid grid-cols-[4rem_1fr] gap-5 py-6 sm:grid-cols-[5rem_1fr]">
+                      {/* Same slot the year occupied, so the grid is unchanged. */}
                       <span className="label pt-1 text-brass-deep tabular-nums">
-                        {item.year}
+                        {pad(i + 1)}
                       </span>
                       <div>
                         <h3 className="text-base font-medium text-ink">
