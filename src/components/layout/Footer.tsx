@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { LogoMark } from "@/components/ui/Logo";
+import { Logo } from "@/components/ui/Logo";
 import { Newsletter } from "./Newsletter";
+import { TECHNICAL_SERVICES } from "@/lib/content/technical-services";
 import {
   CONTACT,
   FOOTER_LINKS,
@@ -44,15 +45,13 @@ export function Footer() {
         <div className="grid gap-14 lg:grid-cols-[1.15fr_2fr]">
           {/* Brand + newsletter */}
           <div>
+            {/* The lockup already carries the wordmark, so no text beside it. */}
             <Link
               href="/"
               aria-label="Wright Brothers — home"
-              className="inline-flex items-center gap-4 text-alabaster"
+              className="inline-flex text-alabaster"
             >
-              <LogoMark className="h-11 w-11" />
-              <span className="display text-[1.75rem] leading-none">
-                Wright Brothers
-              </span>
+              <Logo tone="light" className="h-9 sm:h-10" sizes="240px" />
             </Link>
 
             <p className="mt-7 max-w-[46ch] text-lead leading-[1.6] text-alabaster/60">
@@ -132,8 +131,20 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Areas served — also useful for local SEO */}
+        {/* Technical services — the eight trades, offered standalone */}
         <div className="mt-16 border-t border-alabaster/10 pt-8">
+          <h2 className="label text-alabaster/55">Technical services</h2>
+          <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-2">
+            {TECHNICAL_SERVICES.map((trade) => (
+              <li key={trade.slug} className="text-sm text-alabaster/55">
+                {trade.title}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Areas served — also useful for local SEO */}
+        <div className="mt-10 border-t border-alabaster/10 pt-8">
           <h2 className="label text-alabaster/55">Communities we build in</h2>
           <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-2">
             {FOOTER_LINKS.areas.map((area) => (

@@ -1,71 +1,76 @@
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 /**
- * The mark: a drafting square containing a W drawn as a roofline, sitting on
- * a ground line. Built from strokes so it stays crisp at any size and inherits
- * whatever colour it is placed on.
+ * The brand lockup — monogram plus wordmark — supplied as two PNGs that differ
+ * only in ink colour.
+ *
+ * Both variants are rendered and crossfaded rather than swapped, so the header
+ * can move between its transparent and solid states without the logo popping.
+ * The pair is 2892×652 (4.44:1); height drives the size and width follows.
  */
-export function LogoMark({ className }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 40 40"
-      fill="none"
-      aria-hidden="true"
-      className={cn("h-9 w-9", className)}
-    >
-      <rect
-        x="0.75"
-        y="0.75"
-        width="38.5"
-        height="38.5"
-        stroke="currentColor"
-        strokeWidth="1"
-        opacity="0.35"
-      />
-      <path
-        d="M8 11.5 L14.4 26 L20 15.2 L25.6 26 L32 11.5"
-        stroke="currentColor"
-        strokeWidth="1.9"
-        strokeLinecap="square"
-        strokeLinejoin="miter"
-      />
-      <path d="M8 30.5 H32" stroke="currentColor" strokeWidth="1" opacity="0.55" />
-    </svg>
-  );
-}
 
-export function Wordmark({
-  className,
-  showTagline = false,
-}: {
-  className?: string;
-  showTagline?: boolean;
-}) {
-  return (
-    <span className={cn("flex flex-col leading-none", className)}>
-      <span className="display text-[1.35rem] tracking-[0.01em] whitespace-nowrap sm:text-[1.5rem]">
-        Wright Brothers
-      </span>
-      {showTagline ? (
-        <span className="label mt-1.5 opacity-55">Design &amp; Build · Dubai</span>
-      ) : null}
-    </span>
-  );
-}
+const LOGO = {
+  src: { dark: "/logo/Black_logo.png", light: "/logo/white_logo.png" },
+  width: 2892,
+  height: 652,
+} as const;
+
+export type LogoTone = "dark" | "light" | "auto";
 
 export function Logo({
+  tone = "dark",
   className,
-  showTagline = false,
-  markClassName,
+  priority = false,
+  sizes = "(max-width: 640px) 150px, 210px",
 }: {
+  /** "dark" = dark ink for light surfaces. "auto" crossfades on `data-tone`. */
+  tone?: LogoTone;
   className?: string;
-  showTagline?: boolean;
-  markClassName?: string;
+  priority?: boolean;
+  sizes?: string;
 }) {
+  const common = {
+    width: LOGO.width,
+    height: LOGO.height,
+    priority,
+    sizes,
+    quality: 90,
+    className: "h-full w-auto object-contain object-left",
+  };
+
+  if (tone !== "auto") {
+    return (
+      <span className={cn("block h-7 sm:h-8", className)}>
+        <Image
+          src={tone === "light" ? LOGO.src.light : LOGO.src.dark}
+          alt="Wright Brothers"
+          {...common}
+        />
+      </span>
+    );
+  }
+
+  // Both stacked; the parent sets --logo-dark / --logo-light opacity.
   return (
-    <span className={cn("flex items-center gap-3.5", className)}>
-      <LogoMark className={markClassName} />
-      <Wordmark showTagline={showTagline} />
+    <span className={cn("relative block h-7 sm:h-8", className)}>
+      {/* Reserves the intrinsic width so the stack has a size to fill. */}
+      <Image
+        src={LOGO.src.dark}
+        alt="Wright Brothers"
+        {...common}
+        className={cn(common.className, "opacity-[var(--logo-dark,1)] transition-opacity duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]")}
+      />
+      <Image
+        src={LOGO.src.light}
+        alt=""
+        aria-hidden="true"
+        {...common}
+        className={cn(
+          common.className,
+          "absolute inset-0 opacity-[var(--logo-light,0)] transition-opacity duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
+        )}
+      />
     </span>
   );
 }

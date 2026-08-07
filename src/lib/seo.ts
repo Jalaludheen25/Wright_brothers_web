@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { CONTACT, SITE, SOCIAL, formattedAddress } from "./site";
+import { SERVICES } from "./content/services";
+import { TECHNICAL_SERVICES } from "./content/technical-services";
 
 export function absoluteUrl(path = "/") {
   return new URL(path, SITE.url).toString();
@@ -100,6 +102,17 @@ export function organizationSchema() {
         closes: "18:00",
       },
     ],
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Design, build and technical services",
+      itemListElement: [
+        ...SERVICES.map((service) => service.title),
+        ...TECHNICAL_SERVICES.map((trade) => trade.title),
+      ].map((name) => ({
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name },
+      })),
+    },
     sameAs: SOCIAL.map((s) => s.href),
   };
 }

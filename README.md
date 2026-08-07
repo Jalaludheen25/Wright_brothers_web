@@ -85,30 +85,34 @@ Keys are semantic (`int-bath-luxe`, `craft-site`, `int-kitchen-modern`), so
 content files referencing them keep working. Remove the disclosure paragraph in
 `src/app/terms/page.tsx` once real photography is in.
 
-### 3. Update the real business details
+### 3. Business details — partly real, partly still placeholder
 
-| What                           | Where                                  |
-| ------------------------------ | -------------------------------------- |
-| Address, phone, email, licence | `src/lib/site.ts` → `CONTACT`          |
-| Social profiles                | `src/lib/site.ts` → `SOCIAL`           |
-| WhatsApp number + opening text | `src/lib/site.ts` → `CONTACT.whatsapp` |
-| Map pin                        | `src/lib/site.ts` → `CONTACT.geo`      |
-| Opening hours                  | `src/lib/site.ts` → `CONTACT.hours`    |
+Client-supplied and **live on the site**:
 
-Everything above flows into the footer, the contact page, the Google Maps
-embed, the floating WhatsApp button and the `LocalBusiness` JSON-LD.
+| Detail | Value |
+| --- | --- |
+| Address | 301, RAG Tower Business Centre, Al Barsha First, Dubai, UAE |
+| Phone | +971 52 898 5055 |
+| Email | info@wbtechuae.com |
 
-> The current values are **placeholders**, including the trade licence number.
-> Replace them before launch — schema.org data that misstates a business is
-> worse than none.
+Still **placeholder** in `src/lib/site.ts` — confirm each before launch:
+
+- **WhatsApp number** — assumed to be the same mobile (+971 52 898 5055).
+- **Map pin** (`CONTACT.geo`) — approximate Al Barsha First coordinates. Take the exact ones from the Google Business Profile.
+- **Opening hours** — Sun–Thu 09:00–18:00, assumed.
+- **Trade licence number** — currently `000000`.
+- **Legal name** — currently "Wright Brothers Design & Build LLC".
+- **Canonical domain** — `SITE.url` still defaults to `wrightbrothers.ae`, but the email domain is `wbtechuae.com`. Set `NEXT_PUBLIC_SITE_URL` to whichever is correct; every canonical tag, the sitemap and the OG URLs derive from it.
+- **Social profiles** (`SOCIAL`) — placeholder handles.
 
 ### 4. Check the content
 
 All copy lives in `src/lib/content/`, as typed TypeScript — no CMS:
 
 ```
-projects.ts      8 case studies + the before/after pairs
-services.ts      6 services
+projects.ts            8 case studies + the before/after pairs
+services.ts            6 design-and-build services
+technical-services.ts  the 8 trades, offered standalone
 capabilities.ts  the 4 "drawn, then built" showcase cards
 testimonials.ts  9 client quotes
 insights.ts      6 long-form articles
@@ -157,6 +161,26 @@ src/
 scripts/
   check-contrast.mjs      WCAG guard, reads the palette from globals.css
 ```
+
+### Brand assets
+
+The logo is a horizontal lockup (monogram + wordmark), 2892×652 PNG, supplied
+in two inks:
+
+```
+public/logo/Black_logo.png   dark ink, for light surfaces
+public/logo/white_logo.png   white ink, for dark surfaces
+```
+
+`components/ui/Logo.tsx` renders them. `tone="dark"` / `tone="light"` picks one;
+`tone="auto"` stacks both and crossfades on the `--logo-dark` / `--logo-light`
+custom properties, which is how the header moves between its transparent and
+solid states without the logo popping.
+
+`src/app/icon.png` (512²) and `src/app/apple-icon.png` (180²) are generated
+from the monogram — cropped from the lockup at x 0–604, set in white on the ink
+background so they read on both light and dark browser chrome. Regenerate them
+if the logo changes.
 
 ### Design system
 

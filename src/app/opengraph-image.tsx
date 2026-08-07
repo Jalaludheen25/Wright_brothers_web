@@ -1,3 +1,5 @@
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 import { ImageResponse } from "next/og";
 
 export const alt =
@@ -5,7 +7,20 @@ export const alt =
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-export default function OpengraphImage() {
+/**
+ * Satori cannot fetch relative URLs, so the lockup is inlined as a data URI.
+ * Read at build time — this route is prerendered.
+ */
+async function logoDataUri() {
+  const file = await readFile(
+    join(process.cwd(), "public", "logo", "white_logo.png")
+  );
+  return `data:image/png;base64,${file.toString("base64")}`;
+}
+
+export default async function OpengraphImage() {
+  const logo = await logoDataUri();
+
   return new ImageResponse(
     (
       <div
@@ -22,38 +37,10 @@ export default function OpengraphImage() {
           fontFamily: "Georgia, serif",
         }}
       >
-        {/* Mark */}
-        <div style={{ display: "flex", alignItems: "center", gap: 24 }}>
-          <svg width="64" height="64" viewBox="0 0 40 40" fill="none">
-            <rect
-              x="0.75"
-              y="0.75"
-              width="38.5"
-              height="38.5"
-              stroke="#a9834e"
-              strokeWidth="1"
-              opacity="0.6"
-            />
-            <path
-              d="M8 11.5 L14.4 26 L20 15.2 L25.6 26 L32 11.5"
-              stroke="#faf8f4"
-              strokeWidth="2"
-              strokeLinecap="square"
-            />
-            <path d="M8 30.5 H32" stroke="#a9834e" strokeWidth="1.2" />
-          </svg>
-          <div
-            style={{
-              display: "flex",
-              fontSize: 26,
-              letterSpacing: 6,
-              textTransform: "uppercase",
-              color: "#c9a87a",
-              fontFamily: "Helvetica, Arial, sans-serif",
-            }}
-          >
-            Wright Brothers
-          </div>
+        {/* Brand lockup — 2892×652, scaled to a 400px width */}
+        <div style={{ display: "flex", alignItems: "center" }}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={logo} width={400} height={90} alt="" />
         </div>
 
         {/* Statement */}

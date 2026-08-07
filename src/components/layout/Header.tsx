@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
-import { Logo, LogoMark } from "@/components/ui/Logo";
+import { Logo } from "@/components/ui/Logo";
 import { CONTACT, NAV, SOCIAL, whatsappUrl } from "@/lib/site";
 import { usePrefersReducedMotion, useScrolledPast } from "@/lib/hooks";
 import { cn, pad } from "@/lib/utils";
@@ -108,14 +108,17 @@ export function Header() {
           <Link
             href="/"
             aria-label="Wright Brothers — home"
-            className={cn(
-              "transition-colors duration-500",
-              light ? "text-alabaster" : "text-ink",
-              open && "text-alabaster"
-            )}
+            className="transition-colors duration-500"
+            /* The white lockup shows over the hero and in the open menu; the
+               black one once the header goes solid. Crossfaded, not swapped. */
+            style={
+              {
+                "--logo-dark": light || open ? 0 : 1,
+                "--logo-light": light || open ? 1 : 0,
+              } as React.CSSProperties
+            }
           >
-            <Logo className="hidden sm:flex" />
-            <LogoMark className="h-8 w-8 sm:hidden" />
+            <Logo tone="auto" priority className="h-7 sm:h-9" />
           </Link>
 
           <nav

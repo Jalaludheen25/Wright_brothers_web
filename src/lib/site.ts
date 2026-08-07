@@ -19,22 +19,28 @@ export const SITE = {
 } as const;
 
 export const CONTACT = {
-  email: "studio@wrightbrothers.ae",
-  careersEmail: "careers@wrightbrothers.ae",
-  phone: "+971 4 512 8800",
-  phoneHref: "+97145128800",
-  whatsapp: "971501284400",
-  whatsappMessage:
-    "Hello Wright Brothers — I'd like to discuss a residential project in Dubai.",
+  /* --- Client-supplied, real --------------------------------------------- */
+  email: "info@wbtechuae.com",
+  phone: "+971 52 898 5055",
+  phoneHref: "+971528985055",
+  /** Assumed to be the same mobile number. Confirm before launch. */
+  whatsapp: "971528985055",
   address: {
-    line1: "Boulevard Plaza Tower 1, Level 14",
-    line2: "Downtown Dubai",
+    line1: "301, RAG Tower Business Centre",
+    line2: "Al Barsha First",
     city: "Dubai",
     country: "United Arab Emirates",
-    postalCode: "00000",
   },
-  /** Downtown Dubai — used by the map embed and LocalBusiness schema. */
-  geo: { lat: 25.1972, lng: 55.2744 },
+
+  /* --- Still placeholders — see README ("Going live") --------------------- */
+  careersEmail: "info@wbtechuae.com",
+  whatsappMessage:
+    "Hello Wright Brothers — I'd like to discuss a residential project in Dubai.",
+  /**
+   * Approximate Al Barsha First coordinates. Replace with the exact pin from
+   * the Google Business Profile so the map and LocalBusiness schema agree.
+   */
+  geo: { lat: 25.1123, lng: 55.1975 },
   hours: [
     { days: "Sunday — Thursday", time: "09:00 — 18:00" },
     { days: "Saturday", time: "By appointment" },

@@ -12,7 +12,7 @@ import { buildMetadata, breadcrumbSchema, faqSchema } from "@/lib/seo";
 export const metadata: Metadata = buildMetadata({
   title: "Contact",
   description:
-    "Start a conversation with Wright Brothers. Studio in Downtown Dubai, response within one working day, and a first consultation that costs nothing.",
+    "Start a conversation with Wright Brothers. Studio in Al Barsha First, Dubai, response within one working day, and a first consultation that costs nothing.",
   path: "/contact",
 });
 
@@ -154,15 +154,16 @@ export default function ContactPage() {
             Find the studio
           </h2>
           <p className="mt-4 max-w-[52ch] text-slate">
-            Level 14, Boulevard Plaza Tower 1 — the tower directly opposite the
-            Dubai Mall entrance. Visitor parking is in the basement; tell
+            {/* TODO(client): add a landmark and a parking note — it is the
+                single most useful sentence on a contact page. */}
+            Office 301, RAG Tower Business Centre, Al Barsha First. Tell
             reception you are seeing Wright Brothers.
           </p>
         </div>
 
         <div className="mt-10 h-[clamp(20rem,18rem+14vw,32rem)] w-full">
           <iframe
-            title="Map showing the Wright Brothers studio in Downtown Dubai"
+            title="Map showing the Wright Brothers studio in Al Barsha First, Dubai"
             src={MAP_SRC}
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"

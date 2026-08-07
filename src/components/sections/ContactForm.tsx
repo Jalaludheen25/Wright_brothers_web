@@ -3,6 +3,7 @@
 import { useId, useRef, useState } from "react";
 import { Button } from "@/components/ui/Button";
 import { SERVICES } from "@/lib/content/services";
+import { TECHNICAL_SERVICES } from "@/lib/content/technical-services";
 import { PROJECT_AREAS } from "@/lib/content/projects";
 import { cn } from "@/lib/utils";
 
@@ -190,11 +191,20 @@ export function ContactForm() {
             className={cn(FIELD, "border-ink/20")}
           >
             <option value="">Select a service</option>
-            {SERVICES.map((service) => (
-              <option key={service.slug} value={service.title}>
-                {service.title}
-              </option>
-            ))}
+            <optgroup label="Design & build">
+              {SERVICES.map((service) => (
+                <option key={service.slug} value={service.title}>
+                  {service.title}
+                </option>
+              ))}
+            </optgroup>
+            <optgroup label="Technical services">
+              {TECHNICAL_SERVICES.map((trade) => (
+                <option key={trade.slug} value={trade.title}>
+                  {trade.title}
+                </option>
+              ))}
+            </optgroup>
             <option value="Not sure">Not sure yet</option>
           </select>
         </Field>

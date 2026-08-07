@@ -9,7 +9,7 @@ import type { ImageKey } from "@/lib/images";
 export function Cta({
   eyebrow = "Start a conversation",
   title = "Tell us about the house. We'll tell you the truth about it.",
-  body = "An hour, at your property or at our studio in Downtown Dubai. You leave with a written summary of the brief, an indicative range with its assumptions stated, and an honest view on whether we are the right firm for it.",
+  body = "An hour, at your property or at our studio in Al Barsha First. You leave with a written summary of the brief, an indicative range with its assumptions stated, and an honest view on whether we are the right firm for it.",
   image = "hero-timber",
 }: {
   eyebrow?: string;

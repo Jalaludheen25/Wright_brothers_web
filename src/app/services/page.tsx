@@ -2,12 +2,16 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHero } from "@/components/sections/PageHero";
 import { Cta } from "@/components/sections/Cta";
-import { Reveal } from "@/components/ui/Reveal";
+import { Reveal, RevealGroup, RevealItem } from "@/components/ui/Reveal";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { StaticImage } from "@/components/ui/ParallaxImage";
 import { ButtonLink } from "@/components/ui/Button";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { SERVICES } from "@/lib/content/services";
+import {
+  TECHNICAL_SERVICES,
+  TECHNICAL_SERVICES_HEADING,
+} from "@/lib/content/technical-services";
 import { buildMetadata, breadcrumbSchema } from "@/lib/seo";
 import { pad } from "@/lib/utils";
 
@@ -119,6 +123,46 @@ export default function ServicesPage() {
               </div>
             </article>
           ))}
+        </div>
+      </Section>
+
+      {/* Technical services — the eight trades, offered standalone */}
+      <Section tone="ink" className="grain overflow-hidden">
+        <div className="container-wide">
+          <SectionHeading
+            eyebrow={TECHNICAL_SERVICES_HEADING.eyebrow}
+            number="07"
+            tone="light"
+            title={TECHNICAL_SERVICES_HEADING.title}
+            lead={TECHNICAL_SERVICES_HEADING.lead}
+          />
+
+          <RevealGroup
+            className="mt-16 grid gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-4"
+            stagger={0.06}
+          >
+            {TECHNICAL_SERVICES.map((trade, i) => (
+              <RevealItem key={trade.slug}>
+                <div className="h-full border-t border-alabaster/15 pt-6">
+                  <span className="label text-brass-light tabular-nums">
+                    {pad(i + 1)}
+                  </span>
+                  <h3 className="display mt-4 text-[1.4rem] leading-tight text-alabaster">
+                    {trade.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-alabaster/65">
+                    {trade.summary}
+                  </p>
+                </div>
+              </RevealItem>
+            ))}
+          </RevealGroup>
+
+          <Reveal delay={0.1} className="mt-14">
+            <ButtonLink href="/contact" variant="light" arrow>
+              Enquire about technical services
+            </ButtonLink>
+          </Reveal>
         </div>
       </Section>
 
