@@ -104,8 +104,12 @@ export default async function ProjectPage({ params }: Params) {
               {project.category}
               <span aria-hidden="true">·</span>
               {project.area}
-              <span aria-hidden="true">·</span>
-              {project.year}
+              {project.year ? (
+                <>
+                  <span aria-hidden="true">·</span>
+                  {project.year}
+                </>
+              ) : null}
             </p>
           </Reveal>
 
@@ -208,12 +212,14 @@ export default async function ProjectPage({ params }: Params) {
                     <dt className="text-slate">Type</dt>
                     <dd className="text-right text-ink">{project.category}</dd>
                   </div>
-                  <div className="flex justify-between gap-4">
-                    <dt className="text-slate">Completed</dt>
-                    <dd className="text-right text-ink [font-variant-numeric:lining-nums]">
-                      {project.year}
-                    </dd>
-                  </div>
+                  {project.year ? (
+                    <div className="flex justify-between gap-4">
+                      <dt className="text-slate">Completed</dt>
+                      <dd className="text-right text-ink [font-variant-numeric:lining-nums]">
+                        {project.year}
+                      </dd>
+                    </div>
+                  ) : null}
                 </dl>
               </div>
             </Reveal>
@@ -229,7 +235,7 @@ export default async function ProjectPage({ params }: Params) {
               <RevealItem key={image} className={i === 0 ? "sm:col-span-2" : undefined}>
                 <StaticImage
                   image={image}
-                  alt={`${project.title} — interior and exterior detail ${i + 1}`}
+                  alt={`${project.title} — project photograph ${i + 1}`}
                   className={i === 0 ? "aspect-[16/9] w-full" : "aspect-[4/3] w-full"}
                   sizes={
                     i === 0

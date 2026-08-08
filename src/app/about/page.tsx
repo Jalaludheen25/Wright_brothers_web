@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { PageHero } from "@/components/sections/PageHero";
 import { Cta } from "@/components/sections/Cta";
 import { Stats } from "@/components/sections/Stats";
@@ -80,7 +81,7 @@ export default function AboutPage() {
                   twenty years.&rdquo;
                 </blockquote>
                 <figcaption className="label mt-6 text-ash">
-                  {COMPANY.owner} — Founder &amp; CEO
+                  {COMPANY.owner} — Managing Director
                 </figcaption>
               </figure>
             </Reveal>
@@ -190,12 +191,26 @@ export default function AboutPage() {
               <RevealItem key={member.name}>
                 <article className="border-t border-alabaster/15 pt-7">
                   <div className="flex items-center gap-4">
-                    <span
-                      aria-hidden="true"
-                      className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-alabaster/25 text-xs tracking-widest text-alabaster/75"
-                    >
-                      {member.initials}
-                    </span>
+                    {/* Photograph and monogram occupy the identical 56px slot,
+                        so a member without a portrait leaves the row unchanged. */}
+                    {member.photo ? (
+                      <Image
+                        src={member.photo}
+                        alt=""
+                        aria-hidden="true"
+                        width={128}
+                        height={128}
+                        quality={80}
+                        className="h-14 w-14 shrink-0 rounded-full border border-alabaster/25 bg-alabaster/5 object-cover object-top"
+                      />
+                    ) : (
+                      <span
+                        aria-hidden="true"
+                        className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-alabaster/25 text-xs tracking-widest text-alabaster/75"
+                      >
+                        {member.initials}
+                      </span>
+                    )}
                     <div>
                       <h3 className="display text-[1.5rem] leading-tight text-alabaster">
                         {member.name}

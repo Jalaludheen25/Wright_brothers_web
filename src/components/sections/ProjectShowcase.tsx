@@ -59,7 +59,8 @@ export function ProjectShowcase() {
               transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
             >
               <p className="label text-brass-light">
-                {project.area} · {project.year}
+                {project.area}
+                {project.year ? ` · ${project.year}` : ""}
               </p>
               <p className="display mt-3 text-h3 text-alabaster">
                 {project.title}

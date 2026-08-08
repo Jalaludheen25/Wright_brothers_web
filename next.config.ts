@@ -12,11 +12,11 @@ const nextConfig: NextConfig = {
     minimumCacheTTL: 60 * 60 * 24 * 365,
     /**
      * Next 16 only honours qualities listed here — anything else is silently
-     * served at the default instead. These are the four tiers the components
-     * use: 85 hero/priority, 80 project covers and galleries, 75 secondary,
-     * 70 heavily-overlaid backdrops.
+     * served at the default instead. These are the tiers the components use:
+     * 90 the brand lockup, 85 hero/priority, 80 project covers, galleries and
+     * team portraits, 75 secondary, 70 heavily-overlaid backdrops.
      */
-    qualities: [70, 75, 80, 85],
+    qualities: [70, 75, 80, 85, 90],
   },
 
   async headers() {

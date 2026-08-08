@@ -52,7 +52,8 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
               {project.strapline}
             </p>
             <p className="label mt-4 text-ash">
-              {project.area} · {project.year}
+              {project.area}
+              {project.year ? ` · ${project.year}` : ""}
             </p>
           </div>
         </div>

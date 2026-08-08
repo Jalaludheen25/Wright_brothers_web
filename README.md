@@ -40,12 +40,15 @@ npm run dev                  # http://localhost:3000
 | Legal type | Limited Liability Company – Single Owner (LLC - SO) |
 | Licence period | 28 Jul 2022 — 27 Jul 2028 |
 | DCCI / Register | 4112531 / 1844315 |
-| Owner & CEO | Jinto Parakka Jose Jose (India) |
+| Owner & Managing Director | Jinto Parakka Jose Jose (India) |
 | Address | 301, RAG Tower Business Centre, Al Barsha First, Dubai |
 | Phone / Email | +971 52 898 5055 / info@wbtechuae.com |
 | Team | 8 members with roles and descriptions — `lib/content/team.ts` |
+| Team portraits | 5 of 8 supplied — `public/team/`; the other 3 fall back to a monogram |
 | Strengths & credentials | 8 items — `lib/content/stats.ts` → `ACHIEVEMENTS` |
 | Services | 6 design-build + 8 technical trades |
+| Projects | 3 completed jobs with client photography — `lib/content/projects.ts` |
+| Project photography | `public/Contemporary open -plan workspace/`, `public/sterling perfume Head office DIP/`, `public/MEP works in sterling perfumes/` |
 
 All of the above lives in `lib/site.ts` (`COMPANY`, `CONTACT`) and
 `lib/content/`.
@@ -56,7 +59,8 @@ All of the above lives in `lib/site.ts` (`COMPANY`, `CONTACT`) and
 | --- | --- |
 | 9 client testimonials attributed to named people | `lib/content/testimonials.ts` |
 | "240+ residences", "98% on programme", "2% variance" | `lib/content/stats.ts` → `STATS` |
-| 8 case studies with plot sizes, dates and metrics | `lib/content/projects.ts` |
+| 3 before/after pairs — stock photos, invented villa names | `lib/content/projects.ts` → `BEFORE_AFTER` |
+| Project `scope` lists — inferred from the photographs, not supplied | `lib/content/projects.ts` |
 | 6 long-form articles (bylined to the company, not to individuals) | `lib/content/insights.ts` |
 | The CEO pull-quote on `/about` | `app/about/page.tsx` — marked `TODO(client)` |
 

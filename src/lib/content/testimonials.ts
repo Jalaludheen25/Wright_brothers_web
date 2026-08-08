@@ -11,6 +11,8 @@ export type Testimonial = {
   role: string;
   location: string;
   project?: string;
+  /** Slug of the case study, when one exists. Cleared when the demo villa
+   *  projects were replaced by real work — the link renders only if set. */
   projectSlug?: string;
   /** Two-letter monogram used in place of a photograph. */
   initials: string;
@@ -26,7 +28,6 @@ export const TESTIMONIALS: Testimonial[] = [
     role: "Homeowner",
     location: "Jumeirah",
     project: "Barajeel Villa",
-    projectSlug: "barajeel-villa",
     initials: "HM",
     rating: 5,
   },
@@ -38,7 +39,6 @@ export const TESTIMONIALS: Testimonial[] = [
     role: "Homeowner",
     location: "Emirates Hills",
     project: "Sarab House",
-    projectSlug: "sarab-house",
     initials: "JW",
     rating: 5,
   },
@@ -50,7 +50,6 @@ export const TESTIMONIALS: Testimonial[] = [
     role: "Homeowner",
     location: "Al Barari",
     project: "Ghaf House",
-    projectSlug: "ghaf-house",
     initials: "AK",
     rating: 5,
   },
@@ -62,7 +61,6 @@ export const TESTIMONIALS: Testimonial[] = [
     role: "Homeowner",
     location: "Palm Jumeirah",
     project: "Al Marsa Penthouse",
-    projectSlug: "al-marsa-penthouse",
     initials: "LH",
     rating: 5,
   },
@@ -74,7 +72,6 @@ export const TESTIMONIALS: Testimonial[] = [
     role: "Homeowner",
     location: "Dubai Hills Estate",
     project: "Meridian Townhouse",
-    projectSlug: "meridian-townhouse",
     initials: "RN",
     rating: 5,
   },
@@ -86,7 +83,6 @@ export const TESTIMONIALS: Testimonial[] = [
     role: "Homeowner",
     location: "Arabian Ranches",
     project: "Falaj Courtyard",
-    projectSlug: "falaj-courtyard",
     initials: "TB",
     rating: 5,
   },
@@ -98,7 +94,6 @@ export const TESTIMONIALS: Testimonial[] = [
     role: "Homeowner",
     location: "District One",
     project: "Reem Residence",
-    projectSlug: "reem-residence",
     initials: "MS",
     rating: 5,
   },
@@ -110,7 +105,6 @@ export const TESTIMONIALS: Testimonial[] = [
     role: "Homeowner",
     location: "Palm Jumeirah",
     project: "Nakheel Villa",
-    projectSlug: "nakheel-villa",
     initials: "PL",
     rating: 5,
   },

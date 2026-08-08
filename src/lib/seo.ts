@@ -75,7 +75,7 @@ export function organizationSchema() {
     founder: {
       "@type": "Person",
       name: COMPANY.owner,
-      jobTitle: "Founder & CEO",
+      jobTitle: "Managing Director",
       nationality: { "@type": "Country", name: COMPANY.ownerNationality },
     },
     image: absoluteUrl("/opengraph-image"),

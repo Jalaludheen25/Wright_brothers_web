@@ -1,16 +1,19 @@
 /**
- * The team — real, client-supplied names, roles and descriptions.
+ * The team — real, client-supplied names, roles, descriptions and portraits.
  *
- * `since` stays optional and unset; no start dates have been supplied and the
- * card skips it cleanly. Never invent biographical detail for a named person
- * here — everything below came from the client.
+ * `photo` and `since` are both optional. Five of the eight portraits have been
+ * supplied; the rest fall back to the monogram, so the card renders either way.
+ * Never invent biographical detail for a named person here — everything below
+ * came from the client.
  */
 
 export type TeamMember = {
   name: string;
   role: string;
-  /** Two-letter monogram used in place of a photograph. */
+  /** Two-letter monogram, shown when no `photo` is available. */
   initials: string;
+  /** Path under /public. Spaces are fine — next/image encodes the src. */
+  photo?: string;
   bio?: string;
   since?: string;
 };
@@ -18,14 +21,16 @@ export type TeamMember = {
 export const TEAM: TeamMember[] = [
   {
     name: "Jinto Jose",
-    role: "Founder & CEO",
+    role: "Managing Director",
     initials: "JJ",
+    photo: "/team/Jinto Jose Parakka.png",
     bio: "Leads the company with a strong vision for delivering reliable, high-quality technical services and ensuring complete customer satisfaction.",
   },
   {
     name: "Riya Varghese",
     role: "General Manager",
     initials: "RV",
+    photo: "/team/Riya Varghese.png",
     bio: "Oversees daily operations, project coordination and client relationships to ensure every project runs smoothly.",
   },
   {
@@ -44,6 +49,7 @@ export const TEAM: TeamMember[] = [
     name: "Akhil Raj",
     role: "Site Engineer",
     initials: "AR",
+    photo: "/team/Akhil Raj.png",
     bio: "Supervises project execution on site, ensuring quality standards, safety and timely completion.",
   },
   {
@@ -56,12 +62,14 @@ export const TEAM: TeamMember[] = [
     name: "Ziyad",
     role: "Site Supervisor",
     initials: "Z",
+    photo: "/team/Muhammed Ziyad.png",
     bio: "Monitors day-to-day site activities, manages field teams and ensures work is completed efficiently.",
   },
   {
     name: "Muhmed",
     role: "Site Supervisor",
     initials: "M",
+    photo: "/team/Muhammed.png",
     bio: "Supports on-site operations by coordinating workers, maintaining quality and ensuring project progress.",
   },
 ];

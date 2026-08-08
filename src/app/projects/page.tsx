@@ -11,7 +11,7 @@ import { buildMetadata, breadcrumbSchema } from "@/lib/seo";
 export const metadata: Metadata = buildMetadata({
   title: "Projects",
   description:
-    "Completed private residences across Emirates Hills, Palm Jumeirah, Al Barari, Jumeirah, Dubai Hills and Arabian Ranches — each with the problem it had to solve.",
+    "Completed workspace fit-out, glass and aluminium partitioning and MEP installation across Dubai and Dubai Investment Park — each with the problem it had to solve.",
   path: "/projects",
 });
 
@@ -22,7 +22,7 @@ export default function ProjectsPage() {
 
       <PageHero
         eyebrow="Selected work"
-        title="Eight houses, and the problem each one had to *solve*."
+        title="Completed work, and the problem each job had to *solve*."
         lead="We do not publish everything we build — many of our clients would rather we didn't. These are the ones we can show, described honestly."
         image="ext-canopy-dark"
         crumbs={[{ name: "Projects", href: "/projects" }]}
@@ -52,7 +52,7 @@ export default function ProjectsPage() {
       </Section>
 
       <Cta
-        eyebrow="Your house next"
+        eyebrow="Your project next"
         title="Every one of these started as a conversation."
         image="ext-pool-terrace"
       />

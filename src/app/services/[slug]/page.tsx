@@ -186,7 +186,8 @@ export default async function ServiceDetailPage({ params }: Params) {
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
                     <p className="label mt-5 text-ash">
-                      {project.area} · {project.year}
+                      {project.area}
+                      {project.year ? ` · ${project.year}` : ""}
                     </p>
                     <h3 className="display mt-3 text-h3 leading-tight text-ink transition-colors duration-500 group-hover:text-brass-deep">
                       {project.title}

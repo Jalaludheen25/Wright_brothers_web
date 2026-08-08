@@ -66,7 +66,7 @@ export const COMPANY = {
   dcciNumber: "4112531",
   registerNumber: "1844315",
   owner: "Jinto Parakka Jose Jose",
-  ownerRole: "Owner & CEO",
+  ownerRole: "Owner & Managing Director",
   ownerNationality: "India",
 } as const;
 
@@ -110,13 +110,13 @@ export const FOOTER_LINKS = {
     { label: "Landscape & Outdoor Living", href: "/services/landscape-outdoor" },
     { label: "Interior Architecture", href: "/services/interior-architecture" },
   ],
+  /**
+   * These must stay in step with `PROJECT_AREAS`, or the `?area=` filter falls
+   * back to showing everything and the link means nothing.
+   */
   areas: [
-    { label: "Emirates Hills", href: "/projects?area=Emirates+Hills" },
-    { label: "Palm Jumeirah", href: "/projects?area=Palm+Jumeirah" },
-    { label: "Jumeirah", href: "/projects?area=Jumeirah" },
-    { label: "Dubai Hills Estate", href: "/projects?area=Dubai+Hills+Estate" },
-    { label: "Al Barari", href: "/projects?area=Al+Barari" },
-    { label: "Arabian Ranches", href: "/projects?area=Arabian+Ranches" },
+    { label: "Dubai", href: "/projects?area=Dubai" },
+    { label: "Dubai Investment Park", href: "/projects?area=Dubai+Investment+Park" },
   ],
 } as const;
 

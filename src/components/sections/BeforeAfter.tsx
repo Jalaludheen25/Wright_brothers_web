@@ -205,10 +205,10 @@ export function BeforeAfterSection() {
         </p>
 
         <Link
-          href={`/projects/${item.projectSlug}`}
+          href={item.projectSlug ? `/projects/${item.projectSlug}` : "/projects"}
           className="link-underline label mt-8 self-start text-ink"
         >
-          View the full case study
+          {item.projectSlug ? "View the full case study" : "View our projects"}
         </Link>
 
         {/* Selector */}

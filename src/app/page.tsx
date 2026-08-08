@@ -76,7 +76,7 @@ export default function HomePage() {
             <SectionHeading
               eyebrow="Selected work"
               number="03"
-              title="Four houses, and what each one had to *solve*."
+              title="Three projects, and what each one had to *solve*."
               className="flex-1"
             />
             <Reveal delay={0.15}>
