@@ -37,7 +37,7 @@ export default function TestimonialsPage() {
         eyebrow="In their words"
         title="We asked for the sentence they'd say to a *friend*."
         lead="Not for a review. For the one thing they would actually tell someone considering us over dinner. These are those sentences, unedited."
-        image="int-living-glass"
+        image="wb-lounge-pendants"
         crumbs={[{ name: "Testimonials", href: "/testimonials" }]}
       />
 
@@ -174,7 +174,7 @@ export default function TestimonialsPage() {
         eyebrow="Speak to them yourself"
         title="Ask us for a reference. We'll give you two."
         body="One project that went exactly to plan, and one that did not. Both clients have agreed to take the call, and we do not sit in on it."
-        image="int-living-terrace"
+        image="wb-workspace-seating"
       />
     </>
   );

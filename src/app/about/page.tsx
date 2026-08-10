@@ -29,7 +29,7 @@ export default function AboutPage() {
         eyebrow="The studio"
         title="One team, one contract, and a *stubborn* idea."
         lead="That the people who design a house should be the people who build it — and should still be standing on site the day it is handed over."
-        image="int-concrete-glass"
+        image="wb-lounge-wide"
         crumbs={[{ name: "About", href: "/about" }]}
       />
 
@@ -54,31 +54,20 @@ export default function AboutPage() {
               </Reveal>
               <Reveal delay={0.05}>
                 <p>
-                  Most residential work here is split in two. An architect draws
-                  the project and hands it to a contractor who had no part in
-                  the thinking. When the two disagree — and they always do — the
-                  person paying for both is the one left to arbitrate between
-                  them.
-                </p>
-              </Reveal>
-              <Reveal delay={0.1}>
-                <p>
-                  So the interface was removed rather than managed. Design and
-                  construction sit under a single agreement, carried out by our
-                  own teams. There is no subcontracted design partner and no
-                  second company to blame, which tends to concentrate the mind.
+                  Design and construction sit under a single agreement, carried
+                  out by our own teams. No subcontracted design partner, and no
+                  second company to blame — which tends to concentrate the mind.
                 </p>
               </Reveal>
             </div>
 
             <Reveal delay={0.15}>
               <figure className="mt-14 border-l border-brass/40 pl-7">
-                {/* TODO(client): placeholder wording. Confirm with Jinto, or
-                    replace with a sentence in his own words, before launch. */}
                 <blockquote className="display text-h3 leading-[1.3] text-ink">
-                  &ldquo;We are not trying to be the biggest builder in Dubai.
-                  We are trying to be the one whose houses are still right in
-                  twenty years.&rdquo;
+                  Design with intention. Build with precision.
+                  <span className="mt-2 block text-slate">
+                    Create spaces that endure.
+                  </span>
                 </blockquote>
                 <figcaption className="label mt-6 text-ash">
                   {COMPANY.owner} — Managing Director
@@ -90,8 +79,8 @@ export default function AboutPage() {
           <div className="lg:col-span-5">
             <Reveal direction="none" duration={1.2}>
               <ParallaxImage
-                image="craft-site"
-                alt="A Wright Brothers site team walking a newly poured slab at first light"
+                image="wb-dip-corridor-wide"
+                alt="A completed office floor: glazed partitions and planting along the circulation spine"
                 className="aspect-[3/4] w-full"
                 sizes="(max-width: 1024px) 100vw, 40vw"
                 amount={14}
@@ -248,8 +237,8 @@ export default function AboutPage() {
 
             <Reveal delay={0.2} className="mt-12">
               <StaticImage
-                image="ext-white-minimal"
-                alt="A white rendered villa with deep-set openings, shot against a clear sky"
+                image="wb-office-exterior"
+                alt="The exterior of a completed commercial unit at street level"
                 className="aspect-[4/3] w-full"
                 sizes="(max-width: 1024px) 100vw, 45vw"
               />
@@ -286,7 +275,7 @@ export default function AboutPage() {
       <Cta
         eyebrow="Work with us"
         title="If any of this sounds like the way you'd want it done."
-        image="ext-dusk-entry"
+        image="wb-retail-wall"
       />
     </>
   );

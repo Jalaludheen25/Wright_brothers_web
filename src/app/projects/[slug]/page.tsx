@@ -5,6 +5,7 @@ import { Cta } from "@/components/sections/Cta";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui/Reveal";
 import { Section } from "@/components/ui/Section";
 import { AnimatedText } from "@/components/ui/AnimatedText";
+import { BackgroundVideo } from "@/components/ui/BackgroundVideo";
 import { ParallaxImage, StaticImage } from "@/components/ui/ParallaxImage";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { IMAGES } from "@/lib/images";
@@ -226,6 +227,29 @@ export default async function ProjectPage({ params }: Params) {
           </aside>
         </div>
       </Section>
+
+      {/* Walkthrough */}
+      {project.video ? (
+        <Section tone="alabaster" className="pt-0">
+          <div className="container-wide">
+            <Reveal direction="none" duration={1.2}>
+              <figure>
+                <div className="relative aspect-[16/9] w-full overflow-hidden">
+                  <BackgroundVideo
+                    video={project.video}
+                    alt={`${project.title} — walkthrough of the completed floor`}
+                  />
+                </div>
+                {project.videoCaption ? (
+                  <figcaption className="label mt-5 text-ash">
+                    {project.videoCaption}
+                  </figcaption>
+                ) : null}
+              </figure>
+            </Reveal>
+          </div>
+        </Section>
+      ) : null}
 
       {/* Gallery */}
       <Section tone="alabaster" className="pt-0">

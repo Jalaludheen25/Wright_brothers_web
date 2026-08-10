@@ -35,7 +35,7 @@ export default function ContactPage() {
         eyebrow="Start a conversation"
         title="Tell us about the house. We'll tell you the *truth* about it."
         lead="An hour, at your property or at our studio. No charge, no obligation, and a written summary either way."
-        image="int-dining-dark"
+        image="wb-office-artwork-bar"
         crumbs={[{ name: "Contact", href: "/contact" }]}
       />
 

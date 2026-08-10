@@ -193,6 +193,43 @@ from the monogram — cropped from the lockup at x 0–604, set in white on the 
 background so they read on both light and dark browser chrome. Regenerate them
 if the logo changes.
 
+### Media pipeline
+
+Client masters are **not** committed and **not** deployed. Anything under
+`public/` is copied into the build, so the originals live in `media-src/`,
+which is gitignored:
+
+```
+media-src/*.mp4      camera video, 1080p60 @ ~20 Mbps, 200–300 MB each
+media-src/images/    camera stills, 6000×4000, ~700 MB
+```
+
+Two scripts turn those into what actually ships:
+
+```bash
+bash scripts/encode-video.sh      # -> public/media/  (~21 MB total)
+node scripts/optimize-photos.mjs  # -> public/photos/ (~15 MB total)
+```
+
+`encode-video.sh` trims each master to a short loop and writes 1080p and 720p
+H.264 plus a poster JPEG taken from the clip's own first frame, so the swap
+from poster to video is seamless. VP9/WebM was tried and dropped — at matched
+quality it encoded ~25× slower and came out *larger* than x264 on this footage,
+and H.264 needs no fallback.
+
+`optimize-photos.mjs` holds the key→source map for the stills, resizes to
+2560px and prints the `lib/images.ts` entries. Edit `PICKS` there to add more.
+
+**If you re-clone, `media-src/` will be empty.** The encoded output in
+`public/` is committed, so the site still builds; you only need the masters to
+re-encode. Keep them in the shared drive.
+
+`components/ui/BackgroundVideo.tsx` renders the loops. It always paints a still
+underneath and only crossfades the video in once it is genuinely playing, so a
+blocked autoplay degrades to a static image; it renders no video at all under
+`prefers-reduced-motion`, and holds the sources back behind an
+IntersectionObserver everywhere except the hero.
+
 ### Design system
 
 Tokens live in the `@theme` block of `src/app/globals.css` — colours, the fluid

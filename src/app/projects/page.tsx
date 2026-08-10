@@ -4,6 +4,9 @@ import { PageHero } from "@/components/sections/PageHero";
 import { ProjectGrid } from "@/components/sections/ProjectGrid";
 import { BeforeAfterSection } from "@/components/sections/BeforeAfter";
 import { Cta } from "@/components/sections/Cta";
+import { WorkGallery } from "@/components/sections/WorkGallery";
+import { BackgroundVideo } from "@/components/ui/BackgroundVideo";
+import { Reveal } from "@/components/ui/Reveal";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { buildMetadata, breadcrumbSchema } from "@/lib/seo";
@@ -24,7 +27,7 @@ export default function ProjectsPage() {
         eyebrow="Selected work"
         title="Completed work, and the problem each job had to *solve*."
         lead="We do not publish everything we build — many of our clients would rather we didn't. These are the ones we can show, described honestly."
-        image="ext-canopy-dark"
+        image="wb-retail-wall-wide"
         crumbs={[{ name: "Projects", href: "/projects" }]}
       />
 
@@ -35,6 +38,31 @@ export default function ProjectsPage() {
           <Suspense fallback={<div className="min-h-[60vh]" />}>
             <ProjectGrid />
           </Suspense>
+        </div>
+      </Section>
+
+      {/* Completed work without a written case study — shown, not described. */}
+      <Section tone="ink" className="grain overflow-hidden">
+        <div className="container-wide">
+          <SectionHeading
+            eyebrow="More of our work"
+            tone="light"
+            title="Retail, offices and fit-out, across Dubai."
+            lead="Further completed jobs, photographed on handover."
+          />
+
+          <Reveal direction="none" duration={1.2} className="mt-14">
+            <div className="relative aspect-[21/9] w-full overflow-hidden">
+              <BackgroundVideo
+                video="perfume-wall"
+                alt="A walk through a completed perfume retail fit-out, past a full-height display wall"
+              />
+            </div>
+          </Reveal>
+
+          <div className="mt-8">
+            <WorkGallery />
+          </div>
         </div>
       </Section>
 
@@ -54,7 +82,7 @@ export default function ProjectsPage() {
       <Cta
         eyebrow="Your project next"
         title="Every one of these started as a conversation."
-        image="ext-pool-terrace"
+        image="wb-workspace-cafe"
       />
     </>
   );

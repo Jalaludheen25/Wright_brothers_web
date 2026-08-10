@@ -31,7 +31,7 @@ export default function ServicesPage() {
         eyebrow="What we do"
         title="Six ways we take on a home — all of them *end to end*."
         lead="Whichever you need, the same team designs it, prices it, permits it and builds it. There is never a second company involved, and never a second number to call."
-        image="int-living-terrace"
+        image="wb-office-timber-frame"
         crumbs={[{ name: "Services", href: "/services" }]}
       />
 

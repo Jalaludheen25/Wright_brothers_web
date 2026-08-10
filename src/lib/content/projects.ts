@@ -1,4 +1,5 @@
 import type { ImageKey } from "@/lib/images";
+import type { VideoKey } from "@/components/ui/BackgroundVideo";
 
 /**
  * PROJECTS is real, client-supplied work: three completed jobs, photographed by
@@ -35,6 +36,9 @@ export type Project = {
   strapline: string;
   cover: ImageKey;
   gallery: ImageKey[];
+  /** Optional walkthrough loop, shown as a band above the gallery. */
+  video?: VideoKey;
+  videoCaption?: string;
   /** Long-form case study copy. */
   brief: string;
   approach: string;
@@ -56,9 +60,14 @@ export const PROJECTS: Project[] = [
       "Suspended linear lighting, high-level skylights and planting worked into an open floor plate",
     cover: "wb-workspace-open-plan",
     gallery: [
+      "wb-workspace-wide",
+      "wb-workspace-cafe",
+      "wb-workspace-seating",
       "wb-workspace-planting",
-      "wb-workspace-partitions",
       "wb-workspace-skylights",
+      "wb-workspace-bar",
+      "wb-workspace-lounge-end",
+      "wb-workspace-partitions",
       "wb-workspace-lounge",
     ],
     brief:
@@ -91,7 +100,18 @@ export const PROJECTS: Project[] = [
     strapline:
       "Glasswork and aluminium partitions to a head office in Dubai Investment Park",
     cover: "wb-dip-corridor",
-    gallery: ["wb-dip-partitions", "wb-dip-glazing"],
+    gallery: [
+      "wb-dip-meeting-pod",
+      "wb-dip-corridor-wide",
+      "wb-dip-banded-glass",
+      "wb-dip-slat-screen",
+      "wb-dip-partition-run",
+      "wb-dip-open-office",
+      "wb-dip-partitions",
+      "wb-dip-glazing",
+    ],
+    video: "sterling-dip",
+    videoCaption: "A walk through the completed floor",
     brief:
       "Glasswork and aluminium partition works at the Sterling Perfumes head office in Dubai Investment Park — enclosing meeting and office space along the circulation spine without darkening the floor behind it.",
     approach:

@@ -7,7 +7,7 @@ export default function NotFound() {
   return (
     <section className="relative flex min-h-[92svh] items-end overflow-hidden bg-ink pt-40 pb-[clamp(3rem,2rem+4vw,6rem)]">
       <ParallaxImage
-        image="ext-canopy-dark"
+        image="wb-armaf-lobby"
         alt=""
         fill
         sizes="100vw"

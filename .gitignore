@@ -12,3 +12,7 @@ yarn-error.log*
 .vercel
 *.tsbuildinfo
 next-env.d.ts
+
+# Video masters (200-300 MB each). Encoded web copies live in public/media/
+# and are committed; the masters are not. Keep them in the shared drive.
+media-src/

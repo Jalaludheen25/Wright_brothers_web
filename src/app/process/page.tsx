@@ -34,7 +34,7 @@ export default function ProcessPage() {
         eyebrow="How we work"
         title="Seven stages. One contract. No gap to *fall into*."
         lead="The first four happen before anybody picks up a tool. That front-loading is the entire reason our sites are quiet and our final accounts land where we said they would."
-        image="craft-site"
+        image="wb-workspace-wide"
         crumbs={[{ name: "Process", href: "/process" }]}
       />
 
@@ -151,7 +151,7 @@ export default function ProcessPage() {
         eyebrow="Stage one"
         title="It starts with an hour and no invoice."
         body="The first conversation is free and genuinely non-committal. Roughly a third of them end with us recommending a different firm — which is information worth having either way."
-        image="int-minimal-white"
+        image="wb-dip-banded-glass"
       />
     </>
   );

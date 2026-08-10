@@ -27,25 +27,15 @@ export function Manifesto() {
             <div className="mt-10 max-w-[54ch] space-y-6 text-lead leading-[1.7] text-slate">
               <Reveal delay={0.05}>
                 <p>
-                  Most residential projects in Dubai are split in two. An
-                  architect draws the house and hands it to a contractor who
-                  had no part in the thinking. When the two disagree — and they
-                  always do — the person paying for both is the one who has to
-                  referee.
+                  Most projects here are split in two. One firm draws it, another
+                  builds it, and when the two disagree — as they always do — the
+                  person paying for both has to referee.
                 </p>
               </Reveal>
               <Reveal delay={0.1}>
-                <p>
-                  We removed the seam. Wright Brothers designs and constructs
-                  under a single contract, with our own site teams and our own
-                  joinery workshop in Al Quoz. The architect who drew your stair
-                  detail is still on the project the day it is installed.
-                </p>
-              </Reveal>
-              <Reveal delay={0.15}>
                 <p className="text-ink">
-                  It is a slower way to start and a considerably faster way to
-                  finish.
+                  We removed the seam. One team, one contract, from the drawing
+                  to the day you get the keys.
                 </p>
               </Reveal>
             </div>
@@ -62,8 +52,8 @@ export function Manifesto() {
             <div className="relative">
               <Reveal direction="none" duration={1.2}>
                 <ParallaxImage
-                  image="int-loft-glass"
-                  alt="An interior of steel-framed glazed partitions dividing a double-height living space"
+                  image="wb-lounge-leather"
+                  alt="A completed office lounge: leather seating and planting against glazed partitions"
                   className="aspect-[4/5] w-full"
                   sizes="(max-width: 1024px) 100vw, 40vw"
                   amount={14}
@@ -76,8 +66,8 @@ export function Manifesto() {
                 className="absolute -bottom-10 -left-6 hidden w-[46%] sm:block lg:-left-14"
               >
                 <ParallaxImage
-                  image="ext-facade-detail"
-                  alt="Detail of a deep-set façade screen casting shadow across stone"
+                  image="wb-dip-meeting-pod"
+                  alt="A curved glazed meeting room set into an open office floor"
                   className="aspect-[3/4] w-full shadow-[0_30px_80px_-30px_rgba(12,15,16,0.45)]"
                   sizes="(max-width: 1024px) 45vw, 18vw"
                   amount={20}
@@ -85,16 +75,15 @@ export function Manifesto() {
               </Reveal>
             </div>
 
+            {/* Third frame in place of the pull-quote the client asked us to drop */}
             <Reveal delay={0.3} className="mt-20 sm:mt-28 lg:mt-24">
-              <figure className="border-l border-brass/40 pl-6">
-                <blockquote className="display text-h3 leading-[1.25] text-ink">
-                  &ldquo;We spend the first month on plan, before anyone
-                  discusses a stone sample.&rdquo;
-                </blockquote>
-                <figcaption className="label mt-5 text-ash">
-                  Wright Brothers Technical Services
-                </figcaption>
-              </figure>
+              <ParallaxImage
+                image="wb-office-boardroom"
+                alt="A completed boardroom, glazed to the office floor beyond"
+                className="aspect-[3/2] w-full"
+                sizes="(max-width: 1024px) 100vw, 40vw"
+                amount={12}
+              />
             </Reveal>
           </div>
         </div>

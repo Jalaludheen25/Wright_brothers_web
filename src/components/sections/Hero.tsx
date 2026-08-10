@@ -1,12 +1,11 @@
 "use client";
 
-import Image from "next/image";
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import { AnimatedText } from "@/components/ui/AnimatedText";
+import { BackgroundVideo } from "@/components/ui/BackgroundVideo";
 import { ButtonLink } from "@/components/ui/Button";
 import { Marquee } from "@/components/ui/Marquee";
-import { IMAGES } from "@/lib/images";
 import { CREDENTIALS } from "@/lib/content/stats";
 import { usePrefersReducedMotion } from "@/lib/hooks";
 
@@ -25,38 +24,32 @@ export function Hero() {
   const contentY = useTransform(scrollYProgress, [0, 1], ["0%", reduce ? "0%" : "-22%"]);
   const contentOpacity = useTransform(scrollYProgress, [0, 0.65], [1, reduce ? 1 : 0]);
 
-  const hero = IMAGES["hero-dusk"];
-
   return (
     <section
       ref={ref}
       className="relative flex min-h-[100svh] flex-col justify-end overflow-hidden bg-ink"
       aria-label="Introduction"
     >
-      {/* Backdrop */}
+      {/* Backdrop — video wallpaper, still poster underneath it at all times */}
       <motion.div style={{ y: imageY, scale: imageScale }} className="absolute inset-0">
-        <Image
-          src={hero.src}
-          alt="A contemporary Dubai villa at dusk, its interiors lit behind deep-set glazing"
-          fill
+        <BackgroundVideo
+          video="hero-office"
+          alt="A Wright Brothers office fit-out: leather lounge seating beside glazed partitions under exposed services"
           priority
-          fetchPriority="high"
-          quality={85}
-          sizes="100vw"
-          placeholder="blur"
-          blurDataURL={hero.blurDataURL}
-          className="object-cover object-center"
         />
       </motion.div>
 
-      {/* Legibility scrims — vertical for the copy, edge vignette for depth */}
+      {/* Legibility scrims — vertical for the copy, edge vignette for depth.
+          Weighted heavier than a still would need: the backdrop is now a bright
+          daylit interior, and it moves, so the floor under the copy has to hold
+          up across every frame rather than one. */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-gradient-to-t from-ink via-ink/55 to-ink/25"
+        className="absolute inset-0 bg-gradient-to-t from-ink via-ink/72 to-ink/45"
       />
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-[radial-gradient(120%_85%_at_50%_15%,transparent_35%,rgba(12,15,16,0.6)_100%)]"
+        className="absolute inset-0 bg-[radial-gradient(120%_85%_at_50%_15%,transparent_25%,rgba(12,15,16,0.72)_100%)]"
       />
       <div aria-hidden="true" className="grain absolute inset-0" />
 
