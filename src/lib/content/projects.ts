@@ -21,6 +21,64 @@ export const PROJECT_CATEGORIES = [
 
 export type ProjectCategory = (typeof PROJECT_CATEGORIES)[number];
 
+export type ProjectClip = {
+  /** Path under /public. */
+  src: string;
+  poster: string;
+  caption: string;
+  /** 9:16 phone footage, which the grid frames differently. */
+  portrait?: boolean;
+};
+
+/**
+ * Site clips of the electrical works, shot on a phone. Already web-sized as
+ * supplied (1.4–3.7 MB each), so they are served as delivered; only the poster
+ * frames were generated. See scripts/encode-video.sh for the longer films.
+ */
+const MEP_CLIPS: ProjectClip[] = [
+  {
+    src: "/media/mep/mep-01.mp4",
+    poster: "/media/mep/mep-01-poster.jpg",
+    caption: "Contactor bank and control wiring across the rail",
+  },
+  {
+    src: "/media/mep/mep-02.mp4",
+    poster: "/media/mep/mep-02-poster.jpg",
+    caption: "Breakers and terminal rail inside the board",
+    portrait: true,
+  },
+  {
+    src: "/media/mep/mep-03.mp4",
+    poster: "/media/mep/mep-03-poster.jpg",
+    caption: "Controller mounted in the enclosure",
+    portrait: true,
+  },
+  {
+    src: "/media/mep/mep-04.mp4",
+    poster: "/media/mep/mep-04-poster.jpg",
+    caption: "Incoming cabling landed at the isolator",
+    portrait: true,
+  },
+  {
+    src: "/media/mep/mep-05.mp4",
+    poster: "/media/mep/mep-05-poster.jpg",
+    caption: "Incomer to busbar and fuse carrier",
+    portrait: true,
+  },
+  {
+    src: "/media/mep/mep-06.mp4",
+    poster: "/media/mep/mep-06-poster.jpg",
+    caption: "The full board: breaker rows and terminal rails",
+    portrait: true,
+  },
+  {
+    src: "/media/mep/mep-07.mp4",
+    poster: "/media/mep/mep-07-poster.jpg",
+    caption: "Distribution board with isolator and breaker banks",
+    portrait: true,
+  },
+];
+
 export type Project = {
   slug: string;
   title: string;
@@ -39,6 +97,10 @@ export type Project = {
   /** Optional walkthrough loop, shown as a band above the gallery. */
   video?: VideoKey;
   videoCaption?: string;
+  /** Short site clips, shown as a poster grid that opens a player. */
+  clips?: ProjectClip[];
+  /** Marks demonstration content so it can be found and removed. */
+  sample?: boolean;
   /** Long-form case study copy. */
   brief: string;
   approach: string;
@@ -143,6 +205,7 @@ export const PROJECTS: Project[] = [
       "MEP works including the installation of a 10-ton air-conditioning outdoor unit",
     cover: "wb-mep-condensers",
     gallery: ["wb-mep-platform", "wb-mep-ductwork", "wb-mep-distribution", "wb-mep-panel"],
+    clips: MEP_CLIPS,
     brief:
       "MEP works for Sterling Perfumes — Armaf, including the installation of a 10-ton air-conditioning outdoor unit and the electrical distribution serving it.",
     approach:
@@ -164,6 +227,156 @@ export const PROJECTS: Project[] = [
       "Circuit labelling & local isolation",
     ],
     featured: true,
+  },
+
+  /* ===================================================================== */
+  /*  SAMPLE PROJECTS — DEMONSTRATION CONTENT, NOT REAL WORK.              */
+  /*                                                                        */
+  /*  Every entry below carries `sample: true`. The titles, locations and   */
+  /*  copy are invented; the photographs are real Wright Brothers work      */
+  /*  reused to fill the cards. Delete the four entries — or filter on      */
+  /*  `sample` — when real case studies replace them. Nothing else in the   */
+  /*  codebase needs changing.                                              */
+  /* ===================================================================== */
+  {
+    slug: "sample-corporate-hq-fit-out",
+    title: "Corporate HQ Fit-Out",
+    area: "Dubai",
+    category: "Workspace Fit-Out",
+    sample: true,
+    strapline: "Reception, boardroom and open floor delivered as one package",
+    cover: "wb-office-reception",
+    gallery: [
+      "wb-office-boardroom",
+      "wb-office-artwork-run",
+      "wb-office-counter",
+      "wb-office-open-desks",
+    ],
+    brief:
+      "A head-office floor to be fitted out end to end: reception, meeting rooms, open desking and staff break-out, handed over as a single package.",
+    approach:
+      "Ceilings, partitions, power and lighting were set out together so the services grid and the partition grid agree. Reception joinery and the boardroom were built as feature elements; everything else was kept quiet so they read.",
+    outcome:
+      "One contract, one programme and one point of contact from strip-out to handover.",
+    facts: [
+      { label: "Type", value: "Head office" },
+      { label: "Scope", value: "Full fit-out" },
+      { label: "Trades", value: "Six, in-house" },
+      { label: "Status", value: "Sample project" },
+    ],
+    scope: [
+      "Gypsum ceilings & partitions",
+      "Electrical & lighting",
+      "Joinery & reception counter",
+      "Tile & flooring works",
+      "Painting & finishes",
+      "Furniture coordination",
+    ],
+  },
+  {
+    slug: "sample-retail-store-fit-out",
+    title: "Retail Store Fit-Out",
+    area: "Dubai",
+    category: "Workspace Fit-Out",
+    sample: true,
+    strapline: "Display joinery, lighting and finishes for a shop floor",
+    cover: "wb-retail-shelving",
+    gallery: [
+      "wb-retail-display",
+      "wb-retail-pergola",
+      "wb-retail-seating",
+      "wb-cosmo-store",
+    ],
+    brief:
+      "A retail unit to be taken from shell to trading condition, with the display system carrying both the merchandising and the lighting.",
+    approach:
+      "Shelving runs were set out to the product module first, then the lighting was hung to suit rather than the other way round. Feature joinery was prototyped on site before the full run was fabricated.",
+    outcome:
+      "A floor that merchandises deep without feeling crowded, and a lighting layout that follows the fixtures.",
+    facts: [
+      { label: "Type", value: "Retail unit" },
+      { label: "Scope", value: "Shell to trading" },
+      { label: "Feature", value: "Display joinery" },
+      { label: "Status", value: "Sample project" },
+    ],
+    scope: [
+      "Display joinery",
+      "Track & feature lighting",
+      "Flooring",
+      "Painting & finishes",
+      "Signage coordination",
+      "Snagging & handover",
+    ],
+  },
+  {
+    slug: "sample-office-partition-upgrade",
+    title: "Office Partition Upgrade",
+    area: "Dubai Investment Park",
+    category: "Glass & Aluminium",
+    sample: true,
+    strapline: "Solid walls replaced with glazed screens, floor kept in use",
+    cover: "wb-office-glass-corridor",
+    gallery: [
+      "wb-office-glass-desks",
+      "wb-office-grid-partition",
+      "wb-office-timber-glazing",
+      "wb-dip-banded-glass",
+    ],
+    brief:
+      "An occupied floor of small closed offices to be opened up into glazed rooms without moving the tenant out.",
+    approach:
+      "Worked in phases behind temporary screens, one bay at a time, with demolition and framing out of hours so the floor traded through. Manifestation was set at eye level to keep the rooms legible.",
+    outcome:
+      "Daylight reaches the centre of the plan, and the floor was never closed.",
+    facts: [
+      { label: "Type", value: "Occupied refit" },
+      { label: "Scope", value: "Glass & aluminium" },
+      { label: "Method", value: "Phased, out of hours" },
+      { label: "Status", value: "Sample project" },
+    ],
+    scope: [
+      "Temporary protection",
+      "Strip-out of solid partitions",
+      "Aluminium framing",
+      "Clear & frosted glazing",
+      "Manifestation",
+      "Making good",
+    ],
+  },
+  {
+    slug: "sample-staff-cafeteria",
+    title: "Staff Cafeteria & Break-Out",
+    area: "Dubai",
+    category: "Workspace Fit-Out",
+    sample: true,
+    strapline: "A pantry, servery and seating built into an existing floor",
+    cover: "wb-pantry-bar",
+    gallery: [
+      "wb-pantry-dining",
+      "wb-pantry-mezzanine",
+      "wb-lounge-seating",
+      "wb-lounge-shelving",
+    ],
+    brief:
+      "An underused corner of a floor plate to become a staff cafeteria with a servery, dining seating and a quieter break-out area.",
+    approach:
+      "Drainage and extract dictated where the servery could go, so those were surveyed before anything was drawn. Dark joinery anchors the servery; the seating beyond is deliberately lighter so the space reads as two rooms.",
+    outcome:
+      "A servery, dining and break-out in a footprint that previously held storage.",
+    facts: [
+      { label: "Type", value: "Staff amenity" },
+      { label: "Scope", value: "Pantry & seating" },
+      { label: "Services", value: "Drainage & extract" },
+      { label: "Status", value: "Sample project" },
+    ],
+    scope: [
+      "Servery joinery",
+      "Drainage & extract",
+      "Electrical & lighting",
+      "Tile & flooring works",
+      "Painting & finishes",
+      "Seating coordination",
+    ],
   },
 ];
 

@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Cta } from "@/components/sections/Cta";
+import { ProjectClips } from "@/components/sections/ProjectClips";
 import { Reveal, RevealGroup, RevealItem } from "@/components/ui/Reveal";
-import { Section } from "@/components/ui/Section";
+import { Section, SectionHeading } from "@/components/ui/Section";
 import { AnimatedText } from "@/components/ui/AnimatedText";
 import { BackgroundVideo } from "@/components/ui/BackgroundVideo";
 import { ParallaxImage, StaticImage } from "@/components/ui/ParallaxImage";
@@ -247,6 +248,23 @@ export default async function ProjectPage({ params }: Params) {
                 ) : null}
               </figure>
             </Reveal>
+          </div>
+        </Section>
+      ) : null}
+
+      {/* Site clips */}
+      {project.clips?.length ? (
+        <Section tone="ink" className="grain overflow-hidden">
+          <div className="container-wide">
+            <SectionHeading
+              eyebrow="On site"
+              tone="light"
+              title="Seven clips from the works."
+              lead="Shot as the boards were built out and terminated."
+            />
+            <div className="mt-14">
+              <ProjectClips clips={project.clips} />
+            </div>
           </div>
         </Section>
       ) : null}
