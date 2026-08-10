@@ -47,7 +47,9 @@ npm run dev                  # http://localhost:3000
 | Team portraits | 5 of 8 supplied — `public/team/`; the other 3 fall back to a monogram |
 | Strengths & credentials | 8 items — `lib/content/stats.ts` → `ACHIEVEMENTS` |
 | Services | 6 design-build + 8 technical trades |
-| Projects | 3 completed jobs with client photography — `lib/content/projects.ts` |
+| Projects | 3 real jobs — `lib/content/projects.ts` (plus 4 marked `sample: true`) |
+| Gallery | 70 photographs + 3 films — `lib/content/gallery.ts`, page at `/gallery` |
+| MEP site clips | 7 phone clips — `public/media/mep/`, listed in `MEP_CLIPS` |
 | Project photography | `public/Contemporary open -plan workspace/`, `public/sterling perfume Head office DIP/`, `public/MEP works in sterling perfumes/` |
 
 All of the above lives in `lib/site.ts` (`COMPANY`, `CONTACT`) and
@@ -60,6 +62,7 @@ All of the above lives in `lib/site.ts` (`COMPANY`, `CONTACT`) and
 | 9 client testimonials attributed to named people | `lib/content/testimonials.ts` |
 | "240+ residences", "98% on programme", "2% variance" | `lib/content/stats.ts` → `STATS` |
 | 3 before/after pairs — stock photos, invented villa names | `lib/content/projects.ts` → `BEFORE_AFTER` |
+| 4 sample projects — invented titles and copy over real photographs | `lib/content/projects.ts`, each flagged `sample: true` |
 | Project `scope` lists — inferred from the photographs, not supplied | `lib/content/projects.ts` |
 | 6 long-form articles (bylined to the company, not to individuals) | `lib/content/insights.ts` |
 | The CEO pull-quote on `/about` | `app/about/page.tsx` — marked `TODO(client)` |
