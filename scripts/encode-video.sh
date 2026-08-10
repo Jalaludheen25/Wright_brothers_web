@@ -16,7 +16,7 @@ mkdir -p "$OUT"
 # name | source file | start (s) | duration (s)
 CLIPS=(
   "hero-office|cosmo 02.mp4|9|20"
-  "sterling-dip|sterling.mp4|0|20"
+  "sterling-dip|sterling.mp4|6|20"
   "perfume-wall|The wall.mp4|6|18"
 )
 

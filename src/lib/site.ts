@@ -88,6 +88,7 @@ export const NAV: NavItem[] = [
   { label: "About", href: "/about", blurb: "The people, the standard, the studio" },
   { label: "Services", href: "/services", blurb: "What we take on, end to end" },
   { label: "Projects", href: "/projects", blurb: "Completed private residences" },
+  { label: "Gallery", href: "/gallery", blurb: "Photographs and walkthrough films" },
   { label: "Process", href: "/process", blurb: "Seven stages, one contract" },
   { label: "Testimonials", href: "/testimonials", blurb: "In our clients' words" },
   { label: "Insights", href: "/insights", blurb: "Notes on building in Dubai" },
@@ -97,6 +98,7 @@ export const NAV: NavItem[] = [
 export const FOOTER_LINKS = {
   studio: [
     { label: "About Us", href: "/about" },
+    { label: "Gallery", href: "/gallery" },
     { label: "Our Process", href: "/process" },
     { label: "Testimonials", href: "/testimonials" },
     { label: "Insights", href: "/insights" },
