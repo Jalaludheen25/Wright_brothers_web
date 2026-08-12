@@ -259,7 +259,7 @@ export default async function ProjectPage({ params }: Params) {
             <SectionHeading
               eyebrow="On site"
               tone="light"
-              title="Seven clips from the works."
+              title="Eleven clips from the works."
               lead="Shot as the boards were built out and terminated."
             />
             <div className="mt-14">

@@ -383,17 +383,19 @@ export const GALLERY: GalleryItem[] = [
   },
 
   /* --- MEP & Technical -------------------------------------------------- */
+  // NOTE: 3.jpeg and 2.jpeg were replaced in place by the client and no longer
+  // show the condenser bank or the platform — both are now boards. Captions
+  // and spans follow what the files actually contain; the keys keep their
+  // names only so existing references stay valid.
   {
     image: "wb-mep-condensers",
-    caption: "Condenser units grouped on a fabricated steel platform",
+    caption: "Isolator and breaker rows terminated within the enclosure",
     category: "MEP & Technical",
-    span: "wide",
   },
   {
     image: "wb-mep-platform",
-    caption: "The 10-ton outdoor unit positioned on its platform",
+    caption: "Labelled breaker rows above the terminal rail",
     category: "MEP & Technical",
-    span: "tall",
   },
   {
     image: "wb-mep-ductwork",
@@ -408,35 +410,27 @@ export const GALLERY: GalleryItem[] = [
     caption: "A distribution board built out and terminated",
     category: "MEP & Technical",
   },
-  {
-    image: "wb-mep-panel",
-    caption: "Circuits labelled at the board for isolation",
-    category: "MEP & Technical",
-  },
   { image: "wb-mep-board-orange", caption: "Breaker rows and terminal rails on an orange backplate", category: "MEP & Technical" },
   { image: "wb-mep-board-contactor", caption: "Contactors and breaker banks inside the board", category: "MEP & Technical" },
   { image: "wb-mep-panel-door", caption: "Panel door closed and labelled for restricted access", category: "MEP & Technical" },
   { image: "wb-mep-board-rails", caption: "Breakers landed onto numbered terminal rails", category: "MEP & Technical" },
   { image: "wb-mep-enclosure-open", caption: "Enclosure opened to metering and control gear", category: "MEP & Technical" },
-  { image: "wb-mep-fascia-blank", caption: "Blank fascia fitted over the board", category: "MEP & Technical" },
   { image: "wb-mep-fascia-labelled", caption: "Breaker groups labelled at the fascia", category: "MEP & Technical" },
   { image: "wb-mep-control-meters", caption: "Control panel with ammeter, indicator lamps and selectors", category: "MEP & Technical" },
   { image: "wb-mep-incomer-busbar", caption: "Incoming cable landed onto the busbar", category: "MEP & Technical" },
   { image: "wb-mep-control-fascia", caption: "Control fascia with metering and rotary isolator", category: "MEP & Technical" },
   { image: "wb-mep-board-wide", caption: "Full board: breakers, contactors and terminal rails", category: "MEP & Technical" },
   { image: "wb-mep-incomer-fuse", caption: "Incomer through a fused switch, warning labels applied", category: "MEP & Technical" },
-  { image: "wb-mep-isolators", caption: "Isolators and breaker rows within the enclosure", category: "MEP & Technical" },
   { image: "wb-mep-terminals", caption: "Colour-coded terminal rails beneath the breaker rows", category: "MEP & Technical" },
   { image: "wb-mep-containment", caption: "Containment entering the board at high level", category: "MEP & Technical" },
-  { image: "wb-mep-fascia-rows", caption: "Breaker rows set out behind the fascia", category: "MEP & Technical" },
-  { image: "wb-mep-fascia-groups", caption: "Circuit groups identified at the fascia", category: "MEP & Technical" },
-  { image: "wb-mep-loom", caption: "Cabling loomed and dressed to the breaker rows", category: "MEP & Technical" },
   { image: "wb-mep-contactors", caption: "Contactor bank and control wiring across the rail", category: "MEP & Technical" },
-  { image: "wb-mep-incomer-isolator", caption: "Incoming isolator ahead of the distribution breakers", category: "MEP & Technical" },
-  { image: "wb-mep-fascia-schedule", caption: "Circuit schedule fixed beside the breakers", category: "MEP & Technical" },
   { image: "wb-mep-board-dense", caption: "A fully loaded board, every way terminated", category: "MEP & Technical" },
   { image: "wb-mep-board-control", caption: "Contactors, breakers and control gear in one enclosure", category: "MEP & Technical" },
   { image: "wb-mep-board-large", caption: "A large board with multiple breaker banks and terminal rails", category: "MEP & Technical" },
+  { image: "wb-mep-board-numbered", caption: "Numbered ways across an orange backplate", category: "MEP & Technical" },
+  { image: "wb-mep-board-terminal-block", caption: "Contactor and terminal block wired into the breaker rows", category: "MEP & Technical" },
+  { image: "wb-mep-control-panel-closed", caption: "Control fascia: metering, indicator lamps and rotary selector", category: "MEP & Technical" },
+  { image: "wb-mep-board-isolator", caption: "Isolator above labelled breaker ways", category: "MEP & Technical" },
 ];
 
 /**

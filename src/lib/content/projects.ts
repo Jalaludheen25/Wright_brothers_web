@@ -37,6 +37,11 @@ export type ProjectClip = {
  */
 const MEP_CLIPS: ProjectClip[] = [
   {
+    src: "/media/mep/mep-11.mp4",
+    poster: "/media/mep/mep-11-poster.jpg",
+    caption: "Along the completed condenser run at the building elevation",
+  },
+  {
     src: "/media/mep/mep-01.mp4",
     poster: "/media/mep/mep-01-poster.jpg",
     caption: "Contactor bank and control wiring across the rail",
@@ -75,6 +80,24 @@ const MEP_CLIPS: ProjectClip[] = [
     src: "/media/mep/mep-07.mp4",
     poster: "/media/mep/mep-07-poster.jpg",
     caption: "Distribution board with isolator and breaker banks",
+    portrait: true,
+  },
+  {
+    src: "/media/mep/mep-08.mp4",
+    poster: "/media/mep/mep-08-poster.jpg",
+    caption: "Isolator and breakers with the incoming cabling dressed in",
+    portrait: true,
+  },
+  {
+    src: "/media/mep/mep-09.mp4",
+    poster: "/media/mep/mep-09-poster.jpg",
+    caption: "Panel enclosure set into the wall opening",
+    portrait: true,
+  },
+  {
+    src: "/media/mep/mep-10.mp4",
+    poster: "/media/mep/mep-10-poster.jpg",
+    caption: "Wall-mounted control panel with indicator lamps",
     portrait: true,
   },
 ];
@@ -203,10 +226,12 @@ const AUTHORED: Project[] = [
     category: "MEP Installation",
     strapline:
       "MEP works including the installation of a 10-ton air-conditioning outdoor unit",
-    cover: "wb-mep-condensers",
+    // The original hero, recovered from git after 3.jpeg was replaced in place.
+    cover: "wb-mep-condenser-platform",
     // Every frame from the job. Electrical is a core trade, so this one is
     // shown in full rather than edited down to a representative handful.
     gallery: [
+      "wb-mep-condensers",
       "wb-mep-platform",
       "wb-mep-ductwork",
       "wb-mep-board-wide",
@@ -215,26 +240,22 @@ const AUTHORED: Project[] = [
       "wb-mep-board-contactor",
       "wb-mep-incomer-fuse",
       "wb-mep-incomer-busbar",
-      "wb-mep-incomer-isolator",
-      "wb-mep-isolators",
       "wb-mep-control-meters",
       "wb-mep-control-fascia",
       "wb-mep-board-rails",
       "wb-mep-terminals",
-      "wb-mep-loom",
       "wb-mep-containment",
       "wb-mep-board-dense",
       "wb-mep-board-control",
       "wb-mep-board-large",
       "wb-mep-distribution",
       "wb-mep-enclosure-open",
-      "wb-mep-fascia-rows",
-      "wb-mep-fascia-groups",
       "wb-mep-fascia-labelled",
-      "wb-mep-fascia-schedule",
-      "wb-mep-panel",
-      "wb-mep-fascia-blank",
       "wb-mep-panel-door",
+      "wb-mep-board-numbered",
+      "wb-mep-board-terminal-block",
+      "wb-mep-control-panel-closed",
+      "wb-mep-board-isolator",
     ],
     clips: MEP_CLIPS,
     brief:
