@@ -12,6 +12,7 @@ import { TestimonialsCarousel } from "@/components/sections/TestimonialsCarousel
 import { PostCard } from "@/components/sections/PostCard";
 import { Cta } from "@/components/sections/Cta";
 import { Accordion } from "@/components/ui/Accordion";
+import { FaqAnswer } from "@/components/ui/FaqAnswer";
 import { ButtonLink } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
 import { Section, SectionHeading } from "@/components/ui/Section";
@@ -27,16 +28,30 @@ export const metadata: Metadata = buildMetadata({
   path: "/",
 });
 
-const HOME_FAQS = FAQS.filter((f) =>
-  [
-    "What does design-and-build actually mean here?",
-    "What is the minimum project you will take on?",
-    "Why do you charge for the survey?",
-    "Is the fixed price genuinely fixed?",
-    "How long will it take?",
-    "What warranty do you provide?",
-  ].includes(f.question)
-);
+/**
+ * Six of the twenty-five, chosen to span the arc of an enquiry. Matched by
+ * question text, so these strings must track `lib/content/faqs.ts` — the
+ * assertion below fails the build rather than silently rendering an empty
+ * accordion if one is renamed.
+ */
+const HOME_FAQ_QUESTIONS = [
+  "What does Design & Build mean?",
+  "Is there a minimum project size or budget?",
+  "How is the quotation prepared?",
+  "How long does an interior fit-out project take?",
+  "Do you handle MEP works?",
+  "What warranty do you provide?",
+];
+
+const HOME_FAQS = FAQS.filter((f) => HOME_FAQ_QUESTIONS.includes(f.question));
+
+if (HOME_FAQS.length !== HOME_FAQ_QUESTIONS.length) {
+  throw new Error(
+    `Home FAQ selection is stale: ${HOME_FAQ_QUESTIONS.filter(
+      (q) => !FAQS.some((f) => f.question === q)
+    ).join(", ")}`
+  );
+}
 
 export default function HomePage() {
   return (
@@ -213,7 +228,7 @@ export default function HomePage() {
               items={HOME_FAQS.map((faq) => ({
                 id: faq.question,
                 title: faq.question,
-                content: <p>{faq.answer}</p>,
+                content: <FaqAnswer faq={faq} />,
               }))}
               defaultOpen={HOME_FAQS[0]?.question}
             />

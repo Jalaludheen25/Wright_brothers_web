@@ -48,7 +48,8 @@ npm run dev                  # http://localhost:3000
 | Strengths & credentials | 8 items — `lib/content/stats.ts` → `ACHIEVEMENTS` |
 | Services | 6 design-build + 8 technical trades |
 | Projects | 3 real jobs — `lib/content/projects.ts` (plus 4 marked `sample: true`) |
-| Gallery | 70 photographs + 3 films — `lib/content/gallery.ts`, page at `/gallery` |
+| Gallery | 94 photographs + 3 films — `lib/content/gallery.ts`, page at `/gallery` |
+| MEP works | all 29 photographs + 7 site clips; leads the projects index |
 | MEP site clips | 7 phone clips — `public/media/mep/`, listed in `MEP_CLIPS` |
 | Project photography | `public/Contemporary open -plan workspace/`, `public/sterling perfume Head office DIP/`, `public/MEP works in sterling perfumes/` |
 
@@ -116,7 +117,7 @@ above). These are still assumptions in `src/lib/site.ts` — confirm each:
 - **Map pin** (`CONTACT.geo`) — approximate Al Barsha First coordinates. Take the exact ones from the Google Business Profile.
 - **Opening hours** — Sun–Thu 09:00–18:00, assumed.
 - **Canonical domain** — `SITE.url` still defaults to `wrightbrothers.ae`, but the email domain is `wbtechuae.com`. Set `NEXT_PUBLIC_SITE_URL` to whichever is correct; every canonical tag, the sitemap and the OG URLs derive from it.
-- **Social profiles** (`SOCIAL`) — placeholder handles.
+- **Social profiles** (`SOCIAL`) — Instagram, Facebook, YouTube and Pinterest are the client's real profiles. The Pinterest link was supplied as a `pin.it` share URL; the canonical profile path is used instead so no invite code is published.
 - **Site positioning** — the copy describes a residential design-and-build studio, while the trade licence and logo both read "Technical Services". Confirm which the site should lead with.
 
 ### 4. Check the content
@@ -124,14 +125,14 @@ above). These are still assumptions in `src/lib/site.ts` — confirm each:
 All copy lives in `src/lib/content/`, as typed TypeScript — no CMS:
 
 ```
-projects.ts            8 case studies + the before/after pairs
+projects.ts            3 real projects + 4 samples + the before/after pairs
 services.ts            6 design-and-build services
 technical-services.ts  the 8 trades, offered standalone
 capabilities.ts        the 4 "drawn, then built" showcase cards
 testimonials.ts        9 client quotes
 insights.ts            6 long-form articles
 process.ts             the 7 stages
-faqs.ts                15 questions
+faqs.ts                25 questions, grouped
 team.ts                8 real people + the studio values
 stats.ts               counters, awards, credentials
 ```

@@ -272,21 +272,43 @@ export default async function ProjectPage({ params }: Params) {
       {/* Gallery */}
       <Section tone="alabaster" className="pt-0">
         <div className="container-wide">
-          <RevealGroup className="grid gap-5 sm:grid-cols-2 lg:gap-8" stagger={0.08}>
-            {project.gallery.map((image, i) => (
-              <RevealItem key={image} className={i === 0 ? "sm:col-span-2" : undefined}>
-                <StaticImage
-                  image={image}
-                  alt={`${project.title} — project photograph ${i + 1}`}
-                  className={i === 0 ? "aspect-[16/9] w-full" : "aspect-[4/3] w-full"}
-                  sizes={
-                    i === 0
-                      ? "(max-width: 1024px) 100vw, 90vw"
-                      : "(max-width: 640px) 100vw, 45vw"
-                  }
-                />
-              </RevealItem>
-            ))}
+          {/* Three columns rather than two: some galleries now run to nearly
+              thirty frames. Each cell takes the orientation of its own source,
+              so portrait site photography is not cropped to a landscape box. */}
+          <RevealGroup
+            className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8"
+            stagger={0.05}
+          >
+            {project.gallery.map((image, i) => {
+              const { width, height } = IMAGES[image];
+              const portrait = height > width;
+              // The lead frame spans the row, but only if it is landscape —
+              // a portrait image stretched that wide is all crop and no subject.
+              const lead = i === 0 && !portrait;
+              return (
+                <RevealItem
+                  key={image}
+                  className={lead ? "sm:col-span-2 lg:col-span-3" : undefined}
+                >
+                  <StaticImage
+                    image={image}
+                    alt={`${project.title} — project photograph ${i + 1}`}
+                    className={
+                      lead
+                        ? "aspect-[16/9] w-full"
+                        : portrait
+                          ? "aspect-[3/4] w-full"
+                          : "aspect-[4/3] w-full"
+                    }
+                    sizes={
+                      lead
+                        ? "(max-width: 1024px) 100vw, 90vw"
+                        : "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 32vw"
+                    }
+                  />
+                </RevealItem>
+              );
+            })}
           </RevealGroup>
         </div>
       </Section>

@@ -79,6 +79,12 @@ export function GalleryGrid() {
         <AnimatePresence mode="popLayout">
           {items.map((item, i) => {
             const record = IMAGES[item.image];
+            // A portrait source in a single square cell is cropped to its
+            // middle third. Give it the two-row cell unless the item already
+            // asks to be wide.
+            const span =
+              item.span ??
+              (record.height > record.width ? ("tall" as const) : undefined);
             return (
               <motion.button
                 key={item.image}
@@ -96,8 +102,8 @@ export function GalleryGrid() {
                 aria-label={`Open image: ${item.caption}`}
                 className={cn(
                   "group relative overflow-hidden bg-graphite text-left",
-                  item.span === "wide" && "col-span-2",
-                  item.span === "tall" && "row-span-2"
+                  span === "wide" && "col-span-2",
+                  span === "tall" && "row-span-2"
                 )}
               >
                 <Image

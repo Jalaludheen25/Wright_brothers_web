@@ -28,13 +28,13 @@ export function WhatsAppButton() {
             onMouseLeave={() => setHovered(false)}
             onFocus={() => setHovered(true)}
             onBlur={() => setHovered(false)}
-            className="group relative flex items-center gap-3 rounded-full bg-ink py-3.5 pr-4 pl-3.5 text-alabaster shadow-[0_10px_40px_-12px_rgba(12,15,16,0.55)] transition-colors duration-500 hover:bg-brass"
+            className="group relative flex items-center gap-3 rounded-full bg-whatsapp py-3.5 pr-4 pl-3.5 text-alabaster shadow-[0_10px_40px_-12px_rgba(12,15,16,0.55)] transition-colors duration-500 hover:bg-whatsapp-deep"
           >
             {/* Breathing halo */}
             {!reduce ? (
               <span
                 aria-hidden="true"
-                className="absolute inset-0 -z-10 animate-ping rounded-full bg-brass/25 [animation-duration:3.5s]"
+                className="absolute inset-0 -z-10 animate-ping rounded-full bg-whatsapp/25 [animation-duration:3.5s]"
               />
             ) : null}
 

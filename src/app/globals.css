@@ -30,6 +30,11 @@
   --color-clay: #9c7c5f;
   --color-sage: #6b7a70;
 
+  /* WhatsApp brand green. Outside the palette on purpose — it belongs to
+     WhatsApp, not to Wright Brothers, and is used only on the chat button. */
+  --color-whatsapp: #25d366;
+  --color-whatsapp-deep: #1da851;
+
   /* --- Typography --- */
   /* next/font injects the *-loaded variables in app/layout.tsx. */
   --font-display: var(--font-display-loaded), "Iowan Old Style", Georgia,

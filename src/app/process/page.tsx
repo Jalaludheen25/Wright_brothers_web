@@ -3,6 +3,7 @@ import { PageHero } from "@/components/sections/PageHero";
 import { ProcessTimeline } from "@/components/sections/ProcessTimeline";
 import { Cta } from "@/components/sections/Cta";
 import { Accordion } from "@/components/ui/Accordion";
+import { FaqAnswer } from "@/components/ui/FaqAnswer";
 import { Reveal } from "@/components/ui/Reveal";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { JsonLd } from "@/components/ui/JsonLd";
@@ -140,7 +141,7 @@ export default function ProcessPage() {
               id: faq.question,
               title: faq.question,
               meta: faq.group,
-              content: <p>{faq.answer}</p>,
+              content: <FaqAnswer faq={faq} />,
             }))}
             defaultOpen={PROCESS_FAQS[0]?.question}
           />

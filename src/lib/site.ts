@@ -70,11 +70,36 @@ export const COMPANY = {
   ownerNationality: "India",
 } as const;
 
+/**
+ * Client-supplied profiles. Rendered in the footer, the header menu and the
+ * contact page, and emitted as `sameAs` in the organisation schema — so the
+ * URLs should be the canonical profile links, not share or redirect links.
+ */
 export const SOCIAL = [
-  { name: "Instagram", href: "https://instagram.com/wrightbrothers.ae", handle: "@wrightbrothers.ae" },
-  { name: "LinkedIn", href: "https://linkedin.com/company/wrightbrothers-ae", handle: "Wright Brothers" },
-  { name: "Pinterest", href: "https://pinterest.com/wrightbrothersae", handle: "Wright Brothers" },
-  { name: "YouTube", href: "https://youtube.com/@wrightbrothersae", handle: "Wright Brothers" },
+  {
+    name: "Instagram",
+    href: "https://www.instagram.com/wb_technical_services/",
+    handle: "@wb_technical_services",
+  },
+  {
+    name: "Facebook",
+    href: "https://www.facebook.com/people/Wright-Brothers-Technical-Services/61582807606516/",
+    handle: "Wright Brothers Technical Services",
+  },
+  {
+    name: "YouTube",
+    href: "https://www.youtube.com/@WrightBrothersTechnicalService",
+    handle: "@WrightBrothersTechnicalService",
+  },
+  {
+    // The supplied pin.it link resolved to this profile carrying an
+    // `invite_code` and `sender` query pair. Those are personal to the account
+    // that generated the share and would be published on every page, so only
+    // the canonical profile path is used.
+    name: "Pinterest",
+    href: "https://www.pinterest.com/WrightBrothersTech006/",
+    handle: "@WrightBrothersTech006",
+  },
 ] as const;
 
 export type NavItem = {

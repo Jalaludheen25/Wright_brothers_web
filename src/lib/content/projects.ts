@@ -112,7 +112,7 @@ export type Project = {
   featured?: boolean;
 };
 
-export const PROJECTS: Project[] = [
+const AUTHORED: Project[] = [
   {
     slug: "contemporary-open-plan-workspace",
     title: "Contemporary Open-Plan Workspace",
@@ -204,7 +204,38 @@ export const PROJECTS: Project[] = [
     strapline:
       "MEP works including the installation of a 10-ton air-conditioning outdoor unit",
     cover: "wb-mep-condensers",
-    gallery: ["wb-mep-platform", "wb-mep-ductwork", "wb-mep-distribution", "wb-mep-panel"],
+    // Every frame from the job. Electrical is a core trade, so this one is
+    // shown in full rather than edited down to a representative handful.
+    gallery: [
+      "wb-mep-platform",
+      "wb-mep-ductwork",
+      "wb-mep-board-wide",
+      "wb-mep-contactors",
+      "wb-mep-board-orange",
+      "wb-mep-board-contactor",
+      "wb-mep-incomer-fuse",
+      "wb-mep-incomer-busbar",
+      "wb-mep-incomer-isolator",
+      "wb-mep-isolators",
+      "wb-mep-control-meters",
+      "wb-mep-control-fascia",
+      "wb-mep-board-rails",
+      "wb-mep-terminals",
+      "wb-mep-loom",
+      "wb-mep-containment",
+      "wb-mep-board-dense",
+      "wb-mep-board-control",
+      "wb-mep-board-large",
+      "wb-mep-distribution",
+      "wb-mep-enclosure-open",
+      "wb-mep-fascia-rows",
+      "wb-mep-fascia-groups",
+      "wb-mep-fascia-labelled",
+      "wb-mep-fascia-schedule",
+      "wb-mep-panel",
+      "wb-mep-fascia-blank",
+      "wb-mep-panel-door",
+    ],
     clips: MEP_CLIPS,
     brief:
       "MEP works for Sterling Perfumes — Armaf, including the installation of a 10-ton air-conditioning outdoor unit and the electrical distribution serving it.",
@@ -378,6 +409,19 @@ export const PROJECTS: Project[] = [
       "Seating coordination",
     ],
   },
+];
+
+/**
+ * Display order. Electrical is one of the core trades, so the MEP job leads
+ * the index, the home showcase and the "related work" rails rather than
+ * sitting third. Kept separate from `AUTHORED` so the source above stays
+ * grouped by type and easy to edit.
+ */
+const LEAD_SLUG = "mep-works-sterling-perfumes-armaf";
+
+export const PROJECTS: Project[] = [
+  ...AUTHORED.filter((p) => p.slug === LEAD_SLUG),
+  ...AUTHORED.filter((p) => p.slug !== LEAD_SLUG),
 ];
 
 export const FEATURED_PROJECTS = PROJECTS.filter((p) => p.featured);

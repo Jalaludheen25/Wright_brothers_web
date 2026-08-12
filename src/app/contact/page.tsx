@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/sections/PageHero";
 import { ContactForm } from "@/components/sections/ContactForm";
 import { Accordion } from "@/components/ui/Accordion";
+import { FaqAnswer } from "@/components/ui/FaqAnswer";
 import { Reveal } from "@/components/ui/Reveal";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { JsonLd } from "@/components/ui/JsonLd";
@@ -191,7 +192,7 @@ export default function ContactPage() {
                     items={FAQS.filter((f) => f.group === group).map((faq) => ({
                       id: faq.question,
                       title: faq.question,
-                      content: <p>{faq.answer}</p>,
+                      content: <FaqAnswer faq={faq} />,
                     }))}
                     allowMultiple
                   />

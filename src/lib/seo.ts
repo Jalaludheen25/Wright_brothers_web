@@ -156,14 +156,32 @@ export function breadcrumbSchema(
   };
 }
 
-export function faqSchema(items: { question: string; answer: string }[]) {
+export function faqSchema(
+  items: {
+    question: string;
+    answer: string;
+    details?: { label: string; text: string }[];
+    outro?: string;
+  }[]
+) {
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     mainEntity: items.map((item) => ({
       "@type": "Question",
       name: item.question,
-      acceptedAnswer: { "@type": "Answer", text: item.answer },
+      acceptedAnswer: {
+        "@type": "Answer",
+        // Flattened so the structured data carries the whole answer, including
+        // any sub-points the page renders as a list.
+        text: [
+          item.answer,
+          ...(item.details ?? []).map((d) => `${d.label}: ${d.text}`),
+          item.outro,
+        ]
+          .filter(Boolean)
+          .join(" "),
+      },
     })),
   };
 }
