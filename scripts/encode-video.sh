@@ -44,7 +44,7 @@ for clip in "${CLIPS[@]}"; do
 
   # Poster is the clip's own first frame, so the swap to video is seamless.
   ffmpeg -v error -ss "$start" -i "$SRC/$file" -frames:v 1 \
-    -vf "scale=1920:1080:flags=lanczos" -q:v 4 -y "$OUT/$name-poster.jpg"
+    -vf "scale=2560:1440:flags=lanczos" -q:v 4 -y "$OUT/$name-poster.jpg"
 done
 
 echo

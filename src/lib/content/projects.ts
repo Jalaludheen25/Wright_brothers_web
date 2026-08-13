@@ -143,11 +143,13 @@ const AUTHORED: Project[] = [
     category: "Workspace Fit-Out",
     strapline:
       "Suspended linear lighting, high-level skylights and planting worked into an open floor plate",
-    cover: "wb-workspace-open-plan",
+    // 2560px source; the 1500px "cop 2" frame it replaces is the same shot
+    // and now sits in the gallery, where grid-sized cells never reveal it.
+    cover: "wb-workspace-wide",
     gallery: [
-      "wb-workspace-wide",
       "wb-workspace-cafe",
       "wb-workspace-seating",
+      "wb-workspace-open-plan",
       "wb-workspace-planting",
       "wb-workspace-skylights",
       "wb-workspace-bar",
@@ -184,11 +186,12 @@ const AUTHORED: Project[] = [
     category: "Glass & Aluminium",
     strapline:
       "Glasswork and aluminium partitions to a head office in Dubai Investment Park",
-    cover: "wb-dip-corridor",
+    // 2560px source. The 1500px corridor frame moves into the gallery.
+    cover: "wb-dip-corridor-wide",
     gallery: [
       "wb-dip-meeting-pod",
-      "wb-dip-corridor-wide",
       "wb-dip-banded-glass",
+      "wb-dip-corridor",
       "wb-dip-slat-screen",
       "wb-dip-partition-run",
       "wb-dip-open-office",

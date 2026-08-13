@@ -37,7 +37,6 @@ export const GALLERY: GalleryItem[] = [
     image: "wb-workspace-open-plan",
     caption: "Open floor plate under high-level skylights, planting worked into the layout",
     category: "Workspace",
-    span: "wide",
   },
   {
     image: "wb-workspace-wide",
