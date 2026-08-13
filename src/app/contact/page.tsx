@@ -80,6 +80,17 @@ export default function ContactPage() {
                       {CONTACT.phone}
                     </a>
                   </li>
+                  <li className="flex justify-between gap-4">
+                    <a
+                      href={`tel:${CONTACT.phoneAltHref}`}
+                      className="link-underline text-ink"
+                    >
+                      {CONTACT.phoneAlt}
+                    </a>
+                    <span className="text-sm text-ash">
+                      {CONTACT.phoneAltLabel}
+                    </span>
+                  </li>
                   <li>
                     <a
                       href={`mailto:${CONTACT.email}`}

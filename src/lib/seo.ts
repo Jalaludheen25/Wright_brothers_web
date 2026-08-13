@@ -80,7 +80,7 @@ export function organizationSchema() {
     },
     image: absoluteUrl("/opengraph-image"),
     logo: absoluteUrl("/icon.png"),
-    telephone: CONTACT.phone,
+    telephone: [CONTACT.phone, CONTACT.phoneAlt],
     email: CONTACT.email,
     priceRange: "AED 320,000+",
     address: {

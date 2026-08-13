@@ -23,6 +23,13 @@ export const CONTACT = {
   email: "info@wbtechuae.com",
   phone: "+971 52 898 5055",
   phoneHref: "+971528985055",
+  /**
+   * Second line, supplied as the local 0588116737 and written here in the same
+   * international form as the main number so the two read as a pair.
+   */
+  phoneAlt: "+971 58 811 6737",
+  phoneAltHref: "+971588116737",
+  phoneAltLabel: "Jinto Jose",
   /** Assumed to be the same mobile number. Confirm before launch. */
   whatsapp: "971528985055",
   address: {

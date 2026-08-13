@@ -94,6 +94,12 @@ export function Footer() {
                     {CONTACT.phone}
                   </a>
                   <a
+                    href={`tel:${CONTACT.phoneAltHref}`}
+                    className="link-underline text-alabaster/70 hover:text-alabaster"
+                  >
+                    {CONTACT.phoneAlt}
+                  </a>
+                  <a
                     href={`mailto:${CONTACT.email}`}
                     className="link-underline text-alabaster/70 hover:text-alabaster"
                   >
