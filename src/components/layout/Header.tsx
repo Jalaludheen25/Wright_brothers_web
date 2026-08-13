@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { SocialIcon } from "@/components/ui/SocialIcon";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
@@ -273,8 +274,9 @@ export function Header() {
                           href={s.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="link-underline text-alabaster/80"
+                          className="link-underline inline-flex items-center gap-2.5 text-alabaster/80"
                         >
+                          <SocialIcon name={s.name} />
                           {s.name}
                         </a>
                       </li>

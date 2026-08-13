@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SocialIcon } from "@/components/ui/SocialIcon";
 import { PageHero } from "@/components/sections/PageHero";
 import { ContactForm } from "@/components/sections/ContactForm";
 import { Accordion } from "@/components/ui/Accordion";
@@ -137,8 +138,9 @@ export default function ContactPage() {
                         href={social.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="link-underline text-ink"
+                        className="link-underline inline-flex items-center gap-2.5 text-ink"
                       >
+                        <SocialIcon name={social.name} />
                         {social.name}
                       </a>
                       <span className="text-sm text-ash">{social.handle}</span>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SocialIcon } from "@/components/ui/SocialIcon";
 import { Logo } from "@/components/ui/Logo";
 import { Newsletter } from "./Newsletter";
 import { TECHNICAL_SERVICES } from "@/lib/content/technical-services";
@@ -125,8 +126,9 @@ export function Footer() {
                         href={s.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="link-underline text-sm text-alabaster/70 transition-colors duration-300 hover:text-alabaster"
+                        className="link-underline inline-flex items-center gap-2.5 text-sm text-alabaster/70 transition-colors duration-300 hover:text-alabaster"
                       >
+                        <SocialIcon name={s.name} />
                         {s.name}
                       </a>
                     </li>
