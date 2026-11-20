@@ -4,8 +4,8 @@
   "private": true,
   "description": "Wright Brothers — luxury residential design & build, Dubai UAE.",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "next dev --webpack",
+    "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint . --max-warnings=0",
     "typecheck": "tsc --noEmit",
